@@ -1,0 +1,192 @@
+respawn = "BASE";
+respawnDelay = 10;
+aiKills = 1;
+enableDebugConsole = 1;
+onLoadName = "[5v5v5] Factory Clash "; 
+overviewPicture = "pictures\overviewimageClash.paa";
+joinUnassigned = 0;
+author = "SPC.Carder.D [7CAV]";
+respawnTemplates[] = {"MenuPosition"};
+#include "VAS\menu.hpp"
+
+//reviveDelay = 6;
+//reviveForceRespawnDelay = 2;
+//reviveBleedOutDelay = 90;
+//corpseManagerMode = 0;
+
+class Header
+{
+	gameType = Coop; // MP mission type
+	maxPlayer = 15;
+};
+
+class CfgFunctions {
+    #include "EPD\EPDcfgFunctions.hpp"
+	#include "VAS\cfgfunctions.hpp"
+};
+class Params
+{
+      class maxScore
+      { // param 0
+        title = "Score to Win";
+        values[] = {10000, 10, 20, 30, 40, 50, 75, 100};
+        texts[] = {"Unlimited", 10, 20, 30, 40, 50, 75, 100};
+        default = 50;
+      };
+	  class tracerFire
+	  {
+	    title = "Tracers - Disabled WIP";
+        values[] = {0,0};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
+	  class playerMarkers
+	  {
+	    title = "Visual Unit Indicators (Potentially Heavy Script)";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class dayTime
+	  {
+	    title = "Time of Day";
+        values[] = {0,1,2,3,4,5,6};
+        texts[] = {"0000","0400","0800","1200","1600","2000","Random"};
+        default = 3;
+	  };
+	  class settOvercast
+	  {
+	    title = "Overcast Level";
+        values[] = {0,1,2,3,4,5};
+        texts[] = {"None","1/4","Half","3/4","Full","Random"};
+        default = 5;
+	  };
+	  class fog
+	  {
+	    title = "Fog Level";
+        values[] = {0,1,2,3,4};
+        texts[] = {"Little","Some","Lots","Random","None"};
+        default = 3;
+	  };
+	  class iintro
+	  {
+	    title = "Introduction Sequence";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class Intellines
+	  {
+	    title = "Advanced Inteligence";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class statsHud
+	  {
+	    title = "Health / Fatigue Statitstics HUD";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class radioChatter
+	  {
+	    title = "AI Radio Chatter";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
+	  class enableFatiguee
+	  {
+	    title = "Fatigue (Broken ATM)";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class enableIEDs
+	  {
+	    title = "Random IEDs (Potentially Heavy Script)";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
+	  class enableRadioSounds
+	  {
+	    title = "Intel Radio Sounds";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class ScoreView
+	  {
+	    title = "Side Score HUD";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class InjuredEffects
+	  {
+	    title = "Injured / Hit Visual and Fatigue Effects";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class RecoilShake
+	  {
+	    title = "Basic Recoil Shake";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class RecoilBlur
+	  {
+	    title = "Recoil Blur (Requires Recoil Shake to be Enabled)";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class VASArsenal
+	  {
+	    title = "VAS and Virtual Arsenal Boxes";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
+};
+
+class CfgDebriefing
+{  
+    class End1
+    {
+        title = "Your Team Has Won";
+        subtitle = "";
+        description = "Your team beat the snot out of the opposition";
+        pictureBackground = "";
+        picture = "";
+        pictureColor[] = {1,1,1,1};
+    };
+
+        class End2
+    {
+        title = "Your team has lost";
+        subtitle = "";
+        description = "Your team got their asses kicked";
+        pictureBackground = "";
+        picture = "";
+        pictureColor[] = {1,1,1,1};
+    };
+};
+
+#define CT_STATIC           0
+#define CT_MAP_MAIN         101
+
+
+#define ST_CENTER         0x02
+#define ST_PICTURE        0x30
+
+class RscTitles 
+{
+  #include "UI\defines.hpp"  
+};
+
+
