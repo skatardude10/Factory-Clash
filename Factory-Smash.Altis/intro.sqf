@@ -21,5 +21,3 @@ playMusic  ["LeadTrack02_F_EPC",50];
 
     };
 	
-Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission}; 
-Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission}; 

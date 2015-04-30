@@ -3,6 +3,12 @@ C_fnc_RespawnDir = compile preprocessFileLineNumbers "respawnDir.sqf";
 fn_netSay3D = compile preprocessFileLineNumbers "fn_netSay3D.sqf";
 Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team won!";}; 
 Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team lost!";}; 
+C_fnc_BoostGuy = 	{
+	_BoostGuy = Radio nearEntities ["Man",3];
+	if (count _boostguy > 0) then {NearIntel = True} else {NearIntel = False};
+	BoostGuyUnit = (_boostGuy select 0);
+	NearIntel
+	};
 if (isNil "PVEH_netSay3D") then {
     PVEH_NetSay3D = [objNull,0];
 };
@@ -31,11 +37,9 @@ if ((paramsArray select 13) == 1) then {
 	};
 };
 //Client Scripts//
-nul = [] execVM "dead.sqf";
-if ((paramsArray select 8) == 1) then {call compile preprocessFile "UI\HUD.sqf"; [] spawn ICE_HUD;};
-if ((paramsArray select 7) == 1) then {nul = [] execVM "IntelLines.sqf"};
-if ((paramsArray select 2) == 1) then {nul = [] execVM "playertracker.sqf"};
 //Make all buildings invincible
+
+
 {if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
 
 nul = [] execVM "backpack.sqf";
@@ -44,6 +48,7 @@ nul = [] execVM "backpack.sqf";
 
 //Server Scripts//
 if (isServer) then {  
+nul = [] execVM "CallFunctionsObj.sqf";
 nul = [] execVM "score.sqf";
 //Parameters to select - ref in description.ext
 if ((paramsArray select 3) == 0) then {skipTime 4};

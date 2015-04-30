@@ -4,6 +4,11 @@ if ((paramsArray select 14) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = 
 _JIPplayer addeventhandler ["respawn","0 = _this execVM 'respawndirstart.sqf'"];
 if ((paramsArray select 9) == 0) then {enableRadio false;};
 if ((paramsArray select 11) == 0) then {deleteMarker "IEDMARKER";};
+
+if ((paramsArray select 8) == 1) then {call compile preprocessFile "UI\HUD.sqf"; [] spawn ICE_HUD;};
+if ((paramsArray select 7) == 1) then {nul = [] execVM "IntelLines.sqf"};
+if ((paramsArray select 2) == 1) then {nul = [] execVM "playertracker.sqf"};
+
 if ((paramsArray select 15) == 1) then 
 	{
 		_JIPplayer addEventHandler ["FiredNear",{

@@ -1,12 +1,9 @@
 ["IntelLinesTracker","onEachFrame",
 	{
-	_radioPos = getPosATL Radio;
-	_BoostGuy = _radioPos nearEntities ["Man",3];
-	if (count _BoostGuy > 0) then {
+	if (NearIntel) then {
 								{
-								_unit = (_boostGuy select 0);
-									if (_unit != _x) then {
-									_playerPosition = eyePos _unit;
+									if (BoostGuyUnit != _x) then {
+									_playerPosition = eyePos BoostGuyUnit;
 									_playerX = _playerPosition select 0;
 									_playerY = _playerPosition select 1;
 									_sideColor = [1,1,1,0.8];

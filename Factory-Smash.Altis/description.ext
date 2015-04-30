@@ -45,7 +45,7 @@ class Params
 	    title = "Visual Unit Indicators (Potentially Heavy Script)";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 0;
 	  };
 	  class dayTime
 	  {
