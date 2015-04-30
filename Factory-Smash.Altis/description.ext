@@ -152,6 +152,20 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 0;
 	  };
+	  class SideRelations
+	  {
+	    title = "Blufor & Indfor VS Opfor";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
+	  class SideRelations2
+	  {
+	    title = "Opfor & Indfor VS Blufor";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 0;
+	  };
 };
 
 class CfgDebriefing

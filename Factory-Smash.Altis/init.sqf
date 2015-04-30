@@ -7,7 +7,8 @@ C_fnc_BoostGuy = 	{
 	_BoostGuy = Radio nearEntities ["Man",3];
 	if (count _boostguy > 0) then {NearIntel = True} else {NearIntel = False};
 	BoostGuyUnit = (_boostGuy select 0);
-	NearIntel
+	publicVariable "BoostGuyUnit";
+	publicVariable "NearIntel";
 	};
 if (isNil "PVEH_netSay3D") then {
     PVEH_NetSay3D = [objNull,0];
@@ -71,6 +72,15 @@ if ((paramsArray select 5) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _e
 if ((paramsArray select 11) == 1) then {[] spawn {call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf"}};
 if ((paramsArray select 11) == 0) then {deleteMarker "IEDMARKER";};
 if ((paramsArray select 12) == 1) then {nul = [] execVM "radiosounds.sqf"};
+if ((paramsArray select 18) == 1) then {
+									independent setFriend [west, 1];
+									west setFriend [independent, 1];
+									};
+if ((paramsArray select 19) == 1) then {
+									independent setFriend [east, 1];
+									east setFriend [independent, 1];
+									};
+									
 nul = [] execVM "chase.sqf";
 [
 		60, // seconds to delete dead bodies (0 means don't delete) 
