@@ -31,7 +31,7 @@ class Params
         title = "Score to Win";
         values[] = {10000, 10, 20, 30, 40, 50, 75, 100};
         texts[] = {"Unlimited", 10, 20, 30, 40, 50, 75, 100};
-        default = 50;
+        default = 10000;
       };
 	  class tracerFire
 	  {
@@ -45,28 +45,28 @@ class Params
 	    title = "Visual Unit Indicators (Potentially Heavy Script)";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 0;
+        default = 1;
 	  };
 	  class dayTime
 	  {
 	    title = "Time of Day";
         values[] = {0,1,2,3,4,5,6};
         texts[] = {"0000","0400","0800","1200","1600","2000","Random"};
-        default = 3;
+        default = 2;
 	  };
 	  class settOvercast
 	  {
 	    title = "Overcast Level";
         values[] = {0,1,2,3,4,5};
         texts[] = {"None","1/4","Half","3/4","Full","Random"};
-        default = 5;
+        default = 0;
 	  };
 	  class fog
 	  {
 	    title = "Fog Level";
         values[] = {0,1,2,3,4};
         texts[] = {"Little","Some","Lots","Random","None"};
-        default = 3;
+        default = 0;
 	  };
 	  class iintro
 	  {
@@ -87,7 +87,7 @@ class Params
 	    title = "Health / Fatigue Statitstics HUD";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 0;
 	  };
 	  class radioChatter
 	  {
@@ -150,7 +150,7 @@ class Params
 	    title = "VAS and Virtual Arsenal Boxes";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 0;
+        default = 1;
 	  };
 	  class SideRelations
 	  {

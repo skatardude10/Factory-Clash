@@ -1,5 +1,6 @@
 while {true} do {
 //Need to Execute
+	"areaops" setMarkerPos (getPos Radio);
 	if !(NearIntel) then {} else {
 	_profileName =  name BoostGuyUnit;
 	if ((damage BoostGuyUnit) > 0.1) then {BoostGuyUnit setDamage ((damage BoostGuyUnit) - 0.1)};
@@ -50,7 +51,7 @@ if ((paramsArray select 13) == 1) then {
 					} 
 				};
 
-if (NearIntel) then {hintSilent parseText format ["<t size='1.45'>%1</t> <t size='1.25'><br />Has the Intel!</t> <br /><t size='1.5' color='%4'>%3's Score: %2</t>",_profileName, _sideScore, _sideName,_sideColor]};
+if (NearIntel) then {hintSilent parseText format ["<t size='1.45'>%1</t> <t size='1.25'><br />is escorting the intel officer!</t> <br /><t size='1.5' color='%4'>%3's Score: %2</t>",_sideName, _sideScore, _sideName,_sideColor]};
 };
 
 };

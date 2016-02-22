@@ -1,4 +1,3 @@
-{_x setDamage 1} forEach playableUnits;
 waitUntil {alive player};
 playMusic  ["LeadTrack02_F_EPC",50];
     titleCut ["", "BLACK FADED", 222]; 
@@ -6,7 +5,7 @@ playMusic  ["LeadTrack02_F_EPC",50];
 [
 	[
 		["Factory Clash","<t align = 'center' shadow = '1' size = '0.7' font='PuristaBold'>%1</t>"],
-		["Capture and Defend the Intel","<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"]
+		["Capture and Extract the Intelligence Officer","<t align = 'center' shadow = '1' size = '0.7'>%1</t><br/>"]
 	]
 ] spawn BIS_fnc_typeText;
     titleCut ["", "BLACK IN", 5]; 

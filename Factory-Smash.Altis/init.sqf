@@ -3,13 +3,16 @@ C_fnc_RespawnDir = compile preprocessFileLineNumbers "respawnDir.sqf";
 fn_netSay3D = compile preprocessFileLineNumbers "fn_netSay3D.sqf";
 Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team won!";}; 
 Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team lost!";}; 
+
 C_fnc_BoostGuy = 	{
-	_BoostGuy = Radio nearEntities ["Man",3];
-	if (count _boostguy > 0) then {NearIntel = True} else {NearIntel = False};
-	BoostGuyUnit = (_boostGuy select 0);
+	_BoostGuyArray = backpackObj nearEntities ["Man",35];
+	_playableXunits = playableUnits;
+	_BoostGuyLess = _BoostGuyArray arrayIntersect _playableXunits;
+	if (count _BoostGuyLess > 0) then {NearIntel = True; BoostGuyUnit = (_BoostGuyLess select 0);} else {NearIntel = False; BoostGuyUnit = (_BoostGuyLess select 0);};
 	publicVariable "BoostGuyUnit";
 	publicVariable "NearIntel";
-	};
+};
+	
 if (isNil "PVEH_netSay3D") then {
     PVEH_NetSay3D = [objNull,0];
 };
@@ -18,6 +21,7 @@ if (isNil "PVEH_netSay3D") then {
       _array = _this select 1;
      (_array select 0) say3D (_array select 1);
 };
+
 
 //Gamestate - Checked at the end... ends when GameState = True;
 GameFinished = false;
@@ -39,7 +43,8 @@ if ((paramsArray select 13) == 1) then {
 };
 //Client Scripts//
 //Make all buildings invincible
-
+BoostGuyUnit = nil;
+NearIntel = False;
 
 {if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
 
@@ -51,6 +56,7 @@ nul = [] execVM "backpack.sqf";
 if (isServer) then {  
 nul = [] execVM "CallFunctionsObj.sqf";
 nul = [] execVM "score.sqf";
+//nul = [] execVM "objchase.sqf";
 //Parameters to select - ref in description.ext
 if ((paramsArray select 3) == 0) then {skipTime 4};
 if ((paramsArray select 3) == 1) then {skipTime 8};
@@ -80,7 +86,9 @@ if ((paramsArray select 19) == 1) then {
 									independent setFriend [east, 1];
 									east setFriend [independent, 1];
 									};
-									
+
+{_x setDamage 1} forEach playableUnits;									
+
 nul = [] execVM "chase.sqf";
 [
 		60, // seconds to delete dead bodies (0 means don't delete) 

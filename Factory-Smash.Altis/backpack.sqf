@@ -22,5 +22,6 @@ Radio attachTo [backpackObj,[0,0,1.25]];
 							};
 						};
 	BoostGuyUnit setFatigue 0;
-	drawIcon3D ["\a3\ui_f\data\map\Markers\Military\triangle_ca.paa",_sideColor,[(visiblePosition Radio) select 0,(visiblePosition Radio) select 1, ((getPos Radio) select 2)],_size,_size,_flip,format["Intel - %1 meters",_distanceBetween],0,0.04];
+	_visible = visiblePosition Radio;
+	drawIcon3D ["\a3\ui_f\data\map\Markers\Military\triangle_ca.paa",_sideColor,[_visible select 0,_visible select 1,(getPosATL Radio) select 2],_size,_size,_flip,format["Intelligence Officer - %1 meters",_distanceBetween],1,0.04];
 }] call BIS_fnc_addStackedEventHandler; 
