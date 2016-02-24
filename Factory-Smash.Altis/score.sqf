@@ -1,6 +1,5 @@
 while {true} do {
 //Need to Execute
-	"areaops" setMarkerPos (getPos Radio);
 	if !(NearIntel) then {} else {
 	_profileName =  name BoostGuyUnit;
 	if ((damage BoostGuyUnit) > 0.1) then {BoostGuyUnit setDamage ((damage BoostGuyUnit) - 0.1)};
@@ -8,19 +7,6 @@ while {true} do {
 	_sideColor = "##000000";
 	(side BoostGuyUnit) addScoreSide 1;
 	_sideScore = scoreSide (side BoostGuyUnit);
-		if ((side BoostGuyUnit) == west) then {
-		"areaops" setMarkerColor "ColorBLUFOR"
-		} else {
-			if ((side BoostGuyUnit) == east) then {
-			"areaops" setMarkerColor "ColorOPFOR"
-			} else {
-				if ((side BoostGuyUnit) == resistance) then {				
-				"areaops" setMarkerColor "ColorIndependent"
-				} else {
-						"areaops" setMarkerColor "ColorBlack"
-						}
-					} 
-				};
 	
 //Do not need to: Select based on Parameter State
 if ((paramsArray select 13) == 1) then {
@@ -55,7 +41,7 @@ if (NearIntel) then {hintSilent parseText format ["<t size='1.45'>%1</t> <t size
 };
 
 };
-sleep 13;
+sleep 12;
 };
 
 

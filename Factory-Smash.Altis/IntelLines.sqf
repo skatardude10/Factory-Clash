@@ -46,21 +46,21 @@
 							}
 						};
 					};
-					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, 0.5, 0.5, 1,"",1,0.02];
+					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, 0.5, 0.5, 1,"puristaMedium",1,0.02];
 					drawLine3d [_CirclePos, _Xpos, _sideColor];
 					_position = eyePos BoostGuyUnit;
-					_position = ASLToATL _position;
+					//_position = ASLToATL _position;
 					_eyePosX = eyePos _x;
-					_eyePosX = ASLToATL _eyePosX;
-					_objVis = lineIntersects [_position, _eyePosX,BoostGuyUnit, _x];
-					_terVis = terrainIntersect [_eyePosX, _position];
+					//_eyePosX = ASLToATL _eyePosX;
+					_objVis = lineIntersects [_playerPosition, _eyePosX,BoostGuyUnit, _x];
+					_terVis = terrainIntersect [_playerPosition, _eyePosX];
 					_seenSize = _distSize * 0.75;
-					if ((!_objVis && !_terVis) && (_distance < 175)) then {
+					if !(_objVis || _terVis || (_distance > 300)) then {
 						if (vehicle _x != _x) then 
 						{
 						drawIcon3D ["\A3\ui_f\data\map\Markers\NATO\c_car.paa", _sidecolor, [_Xpos select 0, _Xpos select 1, _XPos select 2], (_distSize / 2), (_distSize / 2), 1,format["%1",_distFloor],1,0.03];
 						} else {
-						drawIcon3D ["\A3\ui_f\data\map\Markers\Military\warning_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, _seenSize, _seenSize, 1,"",1,0.02,"","",True];
+						drawIcon3D ["\A3\ui_f\data\map\Markers\Military\warning_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, _seenSize, _seenSize, 1,"",1,0.02,"puristaMedium","",True];
 						drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", _sidecolor, [_Xpos select 0, _Xpos select 1, _XPos select 2], _distSize, _distSize, 1,format["%1",_distFloor],1,0.03];
 							}
 						} else 

@@ -1,3 +1,4 @@
+waitUntil {!alive player};
 waitUntil {alive player};
 playMusic  ["LeadTrack02_F_EPC",50];
     titleCut ["", "BLACK FADED", 222]; 

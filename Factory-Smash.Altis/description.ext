@@ -2,10 +2,10 @@ respawn = "BASE";
 respawnDelay = 10;
 aiKills = 1;
 enableDebugConsole = 1;
-onLoadName = "[5v5v5] Factory Clash "; 
+onLoadName = "[TDM/CO/PvP 21] Factory-Clash"; 
 overviewPicture = "pictures\overviewimageClash.paa";
 joinUnassigned = 0;
-author = "SPC.Carder.D [7CAV]";
+author = "Skatardude10";
 respawnTemplates[] = {"MenuPosition"};
 #include "VAS\menu.hpp"
 
@@ -17,7 +17,7 @@ respawnTemplates[] = {"MenuPosition"};
 class Header
 {
 	gameType = Coop; // MP mission type
-	maxPlayer = 15;
+	maxPlayer = 21;
 };
 
 class CfgFunctions {
@@ -37,7 +37,7 @@ class Params
 	  {
 	    title = "Tracers - Disabled WIP";
         values[] = {0,0};
-        texts[] = {"Disable","Enable"};
+        texts[] = {"Disable","Disable"};
         default = 0;
 	  };
 	  class playerMarkers
@@ -99,8 +99,8 @@ class Params
 	  class enableFatiguee
 	  {
 	    title = "Fatigue (Broken ATM)";
-        values[] = {0,1};
-        texts[] = {"Disable","Enable"};
+        values[] = {1,1};
+        texts[] = {"Enable","Enable"};
         default = 1;
 	  };
 	  class enableIEDs
@@ -166,6 +166,13 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 0;
 	  };
+	  class respawnTeam
+	  {
+	    title = "Respawn on Escort for Escorting Side";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
 };
 
 class CfgDebriefing
@@ -174,7 +181,7 @@ class CfgDebriefing
     {
         title = "Your Team Has Won";
         subtitle = "";
-        description = "Your team beat the snot out of the opposition";
+        description = "Your team successfully extracted the HVT!";
         pictureBackground = "";
         picture = "";
         pictureColor[] = {1,1,1,1};
@@ -184,7 +191,7 @@ class CfgDebriefing
     {
         title = "Your team has lost";
         subtitle = "";
-        description = "Your team got their asses kicked";
+        description = "Your team failed! The enemy captured the HVT!";
         pictureBackground = "";
         picture = "";
         pictureColor[] = {1,1,1,1};

@@ -24,17 +24,17 @@
 		if(_dam > 0.51) 
 		then
 			{
-			drawIcon3D ["\A3\ui_f\data\map\Markers\Military\warning_ca.paa", _color, [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,"",0.5,0.035,"","",True];
+			drawIcon3D ["\A3\ui_f\data\map\Markers\Military\warning_ca.paa", _color, [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,"",0.5,0.035,"puristaMedium","",True];
 			_x setFatigue 0.65;
 			}
 		else 
 			{ 
 			if (side _x == side player) then {
 				if (vehicle _x != _x) then {
-					drawIcon3D ["\A3\ui_f\data\map\Markers\NATO\c_car.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,format["%1",_profileName],_distSize,0.02,"","Center",True];
+					drawIcon3D ["\A3\ui_f\data\map\Markers\NATO\c_car.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,format["%1",_profileName],_distSize,0.02,"puristaMedium","Center",True];
 				} else 
 				{
-					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,format["%1",_profileName],_distSize,0.02,"","Center",True];
+					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,format["%1",_profileName],_distSize,0.02,"puristaMedium","Center",True];
 				};
 			}
 				else {
@@ -42,7 +42,7 @@
 				_terVis = terrainIntersect [_playerPosition, _position];
 					if(!_objVis && !_terVis) then
 					{
-						drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", _color, [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,"",_distSize,0.035,"","",True];
+						drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", _color, [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,"",_distSize,0.035,"puristaMedium","",True];
 					};
 				};
 			};

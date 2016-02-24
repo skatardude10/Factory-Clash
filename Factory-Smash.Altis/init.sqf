@@ -5,12 +5,13 @@ Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team won!";
 Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team lost!";}; 
 
 C_fnc_BoostGuy = 	{
-	_BoostGuyArray = backpackObj nearEntities ["Man",35];
+	BoostGuyArray = backpackObj nearEntities ["Man",30];
 	_playableXunits = playableUnits;
-	_BoostGuyLess = _BoostGuyArray arrayIntersect _playableXunits;
+	_BoostGuyLess = BoostGuyArray arrayIntersect _playableXunits;
 	if (count _BoostGuyLess > 0) then {NearIntel = True; BoostGuyUnit = (_BoostGuyLess select 0);} else {NearIntel = False; BoostGuyUnit = (_BoostGuyLess select 0);};
 	publicVariable "BoostGuyUnit";
 	publicVariable "NearIntel";
+	publicVariable "BoostGuyArray";
 };
 	
 if (isNil "PVEH_netSay3D") then {
@@ -56,6 +57,7 @@ nul = [] execVM "backpack.sqf";
 if (isServer) then {  
 nul = [] execVM "CallFunctionsObj.sqf";
 nul = [] execVM "score.sqf";
+nul = [] execVM "markers.sqf";
 //nul = [] execVM "objchase.sqf";
 //Parameters to select - ref in description.ext
 if ((paramsArray select 3) == 0) then {skipTime 4};
