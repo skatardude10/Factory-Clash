@@ -7,22 +7,11 @@ overviewPicture = "pictures\overviewimageClash.paa";
 joinUnassigned = 0;
 author = "Skatardude10";
 respawnTemplates[] = {"MenuPosition"};
-#include "VAS\menu.hpp"
-
-//reviveDelay = 6;
-//reviveForceRespawnDelay = 2;
-//reviveBleedOutDelay = 90;
-//corpseManagerMode = 0;
-
+corpseManagerMode = 1;
 class Header
 {
 	gameType = Coop; // MP mission type
 	maxPlayer = 21;
-};
-
-class CfgFunctions {
-    #include "EPD\EPDcfgFunctions.hpp"
-	#include "VAS\cfgfunctions.hpp"
 };
 class Params
 {
@@ -33,16 +22,9 @@ class Params
         texts[] = {"Unlimited", 10, 20, 30, 40, 50, 75, 100};
         default = 10000;
       };
-	  class tracerFire
-	  {
-	    title = "Tracers - Disabled WIP";
-        values[] = {0,0};
-        texts[] = {"Disable","Disable"};
-        default = 0;
-	  };
 	  class playerMarkers
 	  {
-	    title = "Visual Unit Indicators (Potentially Heavy Script)";
+	    title = "Visual Unit Indicators";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
         default = 1;
@@ -82,30 +64,9 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 1;
 	  };
-	  class statsHud
-	  {
-	    title = "Health / Fatigue Statitstics HUD";
-        values[] = {0,1};
-        texts[] = {"Disable","Enable"};
-        default = 0;
-	  };
 	  class radioChatter
 	  {
 	    title = "AI Radio Chatter";
-        values[] = {0,1};
-        texts[] = {"Disable","Enable"};
-        default = 0;
-	  };
-	  class enableFatiguee
-	  {
-	    title = "Fatigue (Broken ATM)";
-        values[] = {1,1};
-        texts[] = {"Enable","Enable"};
-        default = 1;
-	  };
-	  class enableIEDs
-	  {
-	    title = "Random IEDs (Potentially Heavy Script)";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
         default = 0;
@@ -115,7 +76,7 @@ class Params
 	    title = "Intel Radio Sounds";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 0;
 	  };
 	  class ScoreView
 	  {
@@ -145,14 +106,14 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 1;
 	  };
-	  class VASArsenal
+	  class Arsenal
 	  {
-	    title = "VAS and Virtual Arsenal Boxes";
+	    title = "Virtual Arsenal Boxes";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
         default = 1;
 	  };
-	  class SideRelations
+	  class SideRelations1
 	  {
 	    title = "Blufor & Indfor VS Opfor";
         values[] = {0,1};
@@ -174,7 +135,6 @@ class Params
         default = 1;
 	  };
 };
-
 class CfgDebriefing
 {  
     class End1
@@ -197,17 +157,3 @@ class CfgDebriefing
         pictureColor[] = {1,1,1,1};
     };
 };
-
-#define CT_STATIC           0
-#define CT_MAP_MAIN         101
-
-
-#define ST_CENTER         0x02
-#define ST_PICTURE        0x30
-
-class RscTitles 
-{
-  #include "UI\defines.hpp"  
-};
-
-

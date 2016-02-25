@@ -25,20 +25,20 @@ while {alive _unit} do {
 	_hndl2 ppEffectCommit 1; 
 	_hndl3 ppEffectCommit 1;
 	_hndl3 ppEffectAdjust [(_dmg / (16 + (random 4))),(_dmg / (16 + (random 4))),true]; 
-	 sleep 1.5;
+	 sleep 1.75;
 	} 
 	else {	
 		_dmg = Damage _unit;
 		_offsetlarge = (-((_dmg ^ 0.2) * 1 )  + 0.96);
 		if (_offsetlarge < 0) then {_offsetlarge = 0};
-		addCamShake [(_dmg * 1.25), 3, (_dmg * (10 + (random 19)))];   
+		addCamShake [(_dmg * (1.35 *(1 + (random 1)))), 3, (_dmg * (10 + (random 19)))]; 		
 		_hndl1 ppEffectAdjust [_pwr,_pwr,_offsetlarge,_offsetlarge];       
 		_hndl1 ppEffectCommit 1; 
 		_hndl2 ppEffectAdjust [1, (1 - (_dmg / 1.5)), 0, [(_dmg / 1.5),0,0,(((random _dmg) + (_dmg / 1.5)) / 2)], [0,0,0,1], [0,0,0,1]];      
 		_hndl2 ppEffectCommit 1; 
 		_hndl3 ppEffectCommit 1;
 		_hndl3 ppEffectAdjust [(_dmg / (8 + (random 4))),(_dmg / (8 + (random 4))),true]; 
-		sleep (random 1.5);
+		sleep (random 1.75);
 	};
 };
 waitUntil {!alive _unit};

@@ -1,32 +1,24 @@
 //Functions
+
 C_fnc_RespawnDir = compile preprocessFileLineNumbers "respawnDir.sqf";
 fn_netSay3D = compile preprocessFileLineNumbers "fn_netSay3D.sqf";
-Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team won!";}; 
-Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team lost!";}; 
-
+Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team successfully extracted the HVT!";}; 
+Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team failed to extract the HVT :-(";}; 
 C_fnc_BoostGuy = 	{
 	BoostGuyArray = backpackObj nearEntities ["Man",30];
 	_playableXunits = playableUnits;
 	_BoostGuyLess = BoostGuyArray arrayIntersect _playableXunits;
 	if (count _BoostGuyLess > 0) then {NearIntel = True; BoostGuyUnit = (_BoostGuyLess select 0);} else {NearIntel = False; BoostGuyUnit = (_BoostGuyLess select 0);};
-	publicVariable "BoostGuyUnit";
-	publicVariable "NearIntel";
-	publicVariable "BoostGuyArray";
+	publicVariable "BoostGuyUnit"; publicVariable "NearIntel"; publicVariable "BoostGuyArray";
 };
-	
-if (isNil "PVEH_netSay3D") then {
-    PVEH_NetSay3D = [objNull,0];
-};
-"PVEH_netSay3D" addPublicVariableEventHandler {
-      private["_array"];
-      _array = _this select 1;
-     (_array select 0) say3D (_array select 1);
-};
-
+if (isNil "PVEH_netSay3D") then {PVEH_NetSay3D = [objNull,0];};
+"PVEH_netSay3D" addPublicVariableEventHandler {private["_array"]; _array = _this select 1; (_array select 0) say3D (_array select 1);};
 
 //Gamestate - Checked at the end... ends when GameState = True;
+
 GameFinished = false;
 if(!isServer) then {waitUntil{!isNull player}};
+
 //Scoreboard spawned for all units if Enabled//
 if ((paramsArray select 13) == 1) then {
 	h = [] spawn {
@@ -43,63 +35,47 @@ if ((paramsArray select 13) == 1) then {
 	};
 };
 //Client Scripts//
-//Make all buildings invincible
+{if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
 BoostGuyUnit = nil;
 NearIntel = False;
-
-{if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
-
 nul = [] execVM "backpack.sqf";
-//if ((paramsArray select 14) == 1) then {{_x addMPEventHandler ["MPHit", {_this execVM "Damaged.sqf"}]} forEach playableUnits}; -- Moved toInitPlayerLocal for JIP
-//if ((paramsArray select 1) == 1) then {nul = [] execVM "tracer.sqf"; {_x addeventhandler ["respawn"," 0 = [_x] execVM 'tracer2.sqf'"]} forEach playableUnits;}; --Removed due to performance and bugs
 
 //Server Scripts//
 if (isServer) then {  
 nul = [] execVM "CallFunctionsObj.sqf";
 nul = [] execVM "score.sqf";
 nul = [] execVM "markers.sqf";
-//nul = [] execVM "objchase.sqf";
+nul = [] execVM "chase.sqf";
+
 //Parameters to select - ref in description.ext
-if ((paramsArray select 3) == 0) then {skipTime 4};
-if ((paramsArray select 3) == 1) then {skipTime 8};
-if ((paramsArray select 3) == 2) then {skipTime 12};
-if ((paramsArray select 3) == 3) then {skipTime 16};
-if ((paramsArray select 3) == 4) then {skipTime 18};
-if ((paramsArray select 3) == 5) then {skipTime 20};
-if ((paramsArray select 3) == 6) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
-if ((paramsArray select 4) == 0) then {[0] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 1) then {[0.25] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 2) then {[0.5] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 3) then {[0.75] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 4) then {[1] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
-if ((paramsArray select 5) == 0) then {[0.2, 0.1, 43] call BIS_fnc_setFog};
-if ((paramsArray select 5) == 1) then {[0.4, 0.15, 44] call BIS_fnc_setFog};
-if ((paramsArray select 5) == 2) then {[0.8, 0.16, 45] call BIS_fnc_setFog};
-if ((paramsArray select 5) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _elev = (random 10) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
-if ((paramsArray select 11) == 1) then {[] spawn {call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf"}};
-if ((paramsArray select 11) == 0) then {deleteMarker "IEDMARKER";};
-if ((paramsArray select 12) == 1) then {nul = [] execVM "radiosounds.sqf"};
-if ((paramsArray select 18) == 1) then {
+if ((paramsArray select 2) == 0) then {skipTime 4};
+if ((paramsArray select 2) == 1) then {skipTime 8};
+if ((paramsArray select 2) == 2) then {skipTime 12};
+if ((paramsArray select 2) == 3) then {skipTime 16};
+if ((paramsArray select 2) == 4) then {skipTime 18};
+if ((paramsArray select 2) == 5) then {skipTime 20};
+if ((paramsArray select 2) == 6) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
+if ((paramsArray select 3) == 0) then {[0] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) == 1) then {[0.25] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) == 2) then {[0.5] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) == 3) then {[0.75] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) == 4) then {[1] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) == 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
+if ((paramsArray select 4) == 0) then {[0.2, 0.1, 43] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 1) then {[0.4, 0.15, 44] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 2) then {[0.8, 0.16, 45] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _elev = (random 10) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
+if ((paramsArray select 8) == 1) then {nul = [] execVM "radiosounds.sqf"};
+if ((paramsArray select 14) == 1) then {
 									independent setFriend [west, 1];
 									west setFriend [independent, 1];
 									};
-if ((paramsArray select 19) == 1) then {
+if ((paramsArray select 15) == 1) then {
 									independent setFriend [east, 1];
 									east setFriend [independent, 1];
 									};
+{_x setDamage 1} forEach playableUnits;	
 
-{_x setDamage 1} forEach playableUnits;									
-
-nul = [] execVM "chase.sqf";
-[
-		60, // seconds to delete dead bodies (0 means don't delete) 
-		0, // seconds to delete dead vehicles (0 means don't delete)
-		0, // seconds to delete immobile vehicles (0 means don't delete)
-		5*60, // seconds to delete dropped weapons (0 means don't delete)
-		10*60, // seconds to deleted planted explosives (0 means don't delete)
-		0 // seconds to delete dropped smokes/chemlights (0 means don't delete)
-	] execVM 'repetitive_cleanup.sqf';
 //Wait to end game untill...///	
 waituntil {((scoreSide west) >= (paramsArray select 0)) || ((scoreSide east) >= (paramsArray select 0)) || ((scoreSide resistance) >= (paramsArray select 0))}; 
 if (scoreSide West >= (paramsArray select 0)) Then {  

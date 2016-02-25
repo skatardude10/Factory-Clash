@@ -1,15 +1,11 @@
 _JIPplayer = _this select 0;
-if ((paramsArray select 6) == 1) then {nul = [] execVM "intro.sqf"};
-if ((paramsArray select 14) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "Damaged.sqf"}]};
+if ((paramsArray select 5) == 1) then {nul = [] execVM "intro.sqf"};
+if ((paramsArray select 10) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "Damaged.sqf"}]};
+if ((paramsArray select 7) == 0) then {enableRadio false;};
+if ((paramsArray select 6) == 1) then {nul = [] execVM "IntelLines.sqf"};
+if ((paramsArray select 1) == 1) then {nul = [] execVM "playertracker.sqf"};
 _JIPplayer addeventhandler ["respawn","0 = _this execVM 'respawndirstart.sqf'"];
-if ((paramsArray select 9) == 0) then {enableRadio false;};
-if ((paramsArray select 11) == 0) then {deleteMarker "IEDMARKER";};
-
-if ((paramsArray select 8) == 1) then {call compile preprocessFile "UI\HUD.sqf"; [] spawn ICE_HUD;};
-if ((paramsArray select 7) == 1) then {nul = [] execVM "IntelLines.sqf"};
-if ((paramsArray select 2) == 1) then {nul = [] execVM "playertracker.sqf"};
-
-if ((paramsArray select 15) == 1) then 
+if ((paramsArray select 11) == 1) then 
 	{
 	_JIPplayer addEventHandler ["FiredNear",{
 	_calcDist = (_this select 0) distance (_this select 1);
@@ -23,7 +19,7 @@ if ((paramsArray select 15) == 1) then
 			_Caliber = _Caliber / 11;
 			_Power = (1/(1+((1.5^-5)*_Distance)) * 2.5) * _Caliber; 
 			addCamShake [_Power, ((_Power + 3) / 14), (20 / (_Caliber + 1))];
-				if ((paramsArray select 16) == 1) then {
+				if ((paramsArray select 12) == 1) then {
 					[_Power,_Caliber,_Distance] spawn {
 								_Power = _this select 0;
 								_Distance = (_this select 2) + 1;
@@ -35,7 +31,7 @@ if ((paramsArray select 15) == 1) then
 								if (_Power > 0.5) then
 								{
 									_dBlur = ppEffectCreate ["DynamicBlur", 50];
-									_dBlur2 = ppEffectCreate ["RadialBlur", 100]; 
+									_dBlur2 = ppEffectCreate ["RadialBlur", 70]; 
 									_dBlur ppeffectenable true;
 									_dBlur2 ppeffectenable true;
 									_dBlur ppeffectadjust [_BlurPwr];

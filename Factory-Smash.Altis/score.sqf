@@ -9,7 +9,7 @@ while {true} do {
 	_sideScore = scoreSide (side BoostGuyUnit);
 	
 //Do not need to: Select based on Parameter State
-if ((paramsArray select 13) == 1) then {
+if ((paramsArray select 9) == 1) then {
 	if ((side BoostGuyUnit) == west) then {
 		_sideColor = "#0000ff"
 		} else {
