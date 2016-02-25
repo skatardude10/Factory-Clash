@@ -1,7 +1,7 @@
 //Functions
 
-C_fnc_RespawnDir = compile preprocessFileLineNumbers "respawnDir.sqf";
-fn_netSay3D = compile preprocessFileLineNumbers "fn_netSay3D.sqf";
+C_fnc_RespawnDir = compile preprocessFileLineNumbers "scripts\respawnDir.sqf";
+fn_netSay3D = compile preprocessFileLineNumbers "scripts\fn_netSay3D.sqf";
 Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team successfully extracted the HVT!";}; 
 Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team failed to extract the HVT :-(";}; 
 C_fnc_BoostGuy = 	{
@@ -34,18 +34,18 @@ if ((paramsArray select 13) == 1) then {
 		};
 	};
 };
-//Client Scripts//
+//Client scripts\/
 {if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
 BoostGuyUnit = nil;
 NearIntel = False;
-nul = [] execVM "backpack.sqf";
+nul = [] execVM "scripts\backpack.sqf";
 
-//Server Scripts//
+//Server scripts\/
 if (isServer) then {  
-nul = [] execVM "CallFunctionsObj.sqf";
-nul = [] execVM "score.sqf";
-nul = [] execVM "markers.sqf";
-nul = [] execVM "chase.sqf";
+nul = [] execVM "scripts\CallFunctionsObj.sqf";
+nul = [] execVM "scripts\score.sqf";
+nul = [] execVM "scripts\markers.sqf";
+nul = [] execVM "scripts\chase.sqf";
 
 //Parameters to select - ref in description.ext
 if ((paramsArray select 2) == 0) then {skipTime 4};
@@ -65,7 +65,7 @@ if ((paramsArray select 4) == 0) then {[0.2, 0.1, 43] call BIS_fnc_setFog};
 if ((paramsArray select 4) == 1) then {[0.4, 0.15, 44] call BIS_fnc_setFog};
 if ((paramsArray select 4) == 2) then {[0.8, 0.16, 45] call BIS_fnc_setFog};
 if ((paramsArray select 4) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _elev = (random 10) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
-if ((paramsArray select 8) == 1) then {nul = [] execVM "radiosounds.sqf"};
+if ((paramsArray select 8) == 1) then {nul = [] execVM "scripts\radiosounds.sqf"};
 if ((paramsArray select 14) == 1) then {
 									independent setFriend [west, 1];
 									west setFriend [independent, 1];

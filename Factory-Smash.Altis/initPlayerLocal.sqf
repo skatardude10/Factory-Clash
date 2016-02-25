@@ -1,10 +1,10 @@
 _JIPplayer = _this select 0;
-if ((paramsArray select 5) == 1) then {nul = [] execVM "intro.sqf"};
-if ((paramsArray select 10) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "Damaged.sqf"}]};
+if ((paramsArray select 5) == 1) then {nul = [] execVM "scripts\intro.sqf"};
+if ((paramsArray select 10) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "scripts\Damaged.sqf"}]};
 if ((paramsArray select 7) == 0) then {enableRadio false;};
-if ((paramsArray select 6) == 1) then {nul = [] execVM "IntelLines.sqf"};
-if ((paramsArray select 1) == 1) then {nul = [] execVM "playertracker.sqf"};
-_JIPplayer addeventhandler ["respawn","0 = _this execVM 'respawndirstart.sqf'"];
+if ((paramsArray select 6) == 1) then {nul = [] execVM "scripts\IntelLines.sqf"};
+if ((paramsArray select 1) == 1) then {nul = [] execVM "scripts\playertracker.sqf"};
+_JIPplayer addeventhandler ["respawn","0 = _this execVM 'scripts\respawndirstart.sqf'"];
 if ((paramsArray select 11) == 1) then 
 	{
 	_JIPplayer addEventHandler ["FiredNear",{
