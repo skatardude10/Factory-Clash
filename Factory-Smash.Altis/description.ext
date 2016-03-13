@@ -27,28 +27,28 @@ class Params
 	    title = "Visual Unit Indicators";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 0;
 	  };
 	  class dayTime
 	  {
 	    title = "Time of Day";
-        values[] = {0,1,2,3,4,5,6};
-        texts[] = {"0000","0400","0800","1200","1600","2000","Random"};
-        default = 2;
+        values[] = {0,1,2,3,4,5,6,7};
+        texts[] = {"0000","0400","0800","1200","1600","1800","2000","Random"};
+        default = 3;
 	  };
 	  class settOvercast
 	  {
 	    title = "Overcast Level";
         values[] = {0,1,2,3,4,5};
         texts[] = {"None","1/4","Half","3/4","Full","Random"};
-        default = 0;
+        default = 3;
 	  };
 	  class fog
 	  {
 	    title = "Fog Level";
         values[] = {0,1,2,3,4};
         texts[] = {"Little","Some","Lots","Random","None"};
-        default = 0;
+        default = 1;
 	  };
 	  class iintro
 	  {
@@ -137,6 +137,13 @@ class Params
 	  class AIArti
 	  {
 	    title = "AI JTAC Units able to Call Artillery";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class AIUAVBombs
+	  {
+	    title = "AI Scouts use UAV Suicide Bombs";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
         default = 1;

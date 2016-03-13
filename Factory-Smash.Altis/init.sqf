@@ -12,6 +12,27 @@ C_fnc_BoostGuy = 	{
 };
 if (isNil "PVEH_netSay3D") then {PVEH_NetSay3D = [objNull,0];};
 "PVEH_netSay3D" addPublicVariableEventHandler {private["_array"]; _array = _this select 1; (_array select 0) say3D (_array select 1);};
+fnc_resizePIP = {
+	_dispPos = [ _this, 0, [ 0, 0 ], [ [] ], [ 2 ] ] call BIS_fnc_param;
+	_scale = [ _this, 1, 1, [ 0 ] ] call BIS_fnc_param;
+	_display = uiNamespace getVariable "BIS_fnc_PIP_RscPIP";
+	_basePos = ctrlPosition ( _display displayCtrl 2300 );
+	_baseScale = ctrlScale ( _display displayCtrl 2300 );
+	_scaleDiff = _scale / _baseScale;
+	{
+		_ctrl = _x;
+		_pos = ctrlPosition _ctrl;
+		_pos resize 2;
+		{
+			_diff = _x - ( _basePos select _forEachIndex );
+			_newpos = ( _dispPos select _forEachIndex ) + ( _diff * _scaleDiff );
+			_pos set [ _forEachIndex, _newpos ];
+		}forEach _pos;
+		_ctrl ctrlSetPosition _pos;
+		_ctrl ctrlSetScale _scale;
+		_ctrl ctrlCommit 0;
+	}forEach allControls _display;
+};
 
 //Gamestate - Checked at the end... ends when GameState = True;
 
@@ -39,31 +60,33 @@ BoostGuyUnit = nil;
 NearIntel = False;
 nul = [] execVM "scripts\backpack.sqf";
 
-//Server scripts\/
+//Server scripts//
 if (isServer) then {  
 nul = [] execVM "scripts\CallFunctionsObj.sqf";
 nul = [] execVM "scripts\score.sqf";
 nul = [] execVM "scripts\markers.sqf";
 nul = [] execVM "scripts\chase.sqf";
 
-//Parameters to select - ref in description.ext
-if ((paramsArray select 2) == 0) then {skipTime 4};
-if ((paramsArray select 2) == 1) then {skipTime 8};
-if ((paramsArray select 2) == 2) then {skipTime 12};
-if ((paramsArray select 2) == 3) then {skipTime 16};
-if ((paramsArray select 2) == 4) then {skipTime 18};
-if ((paramsArray select 2) == 5) then {skipTime 20};
-if ((paramsArray select 2) == 6) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
+//Parameters to select - ref in description.ext//
+if ((paramsArray select 2) == 0) then {skipTime 0};
+if ((paramsArray select 2) == 1) then {skipTime 4};
+if ((paramsArray select 2) == 2) then {skipTime 8};
+if ((paramsArray select 2) == 3) then {skipTime 12};
+if ((paramsArray select 2) == 4) then {skipTime 16};
+if ((paramsArray select 2) == 5) then {skipTime 18};
+if ((paramsArray select 2) == 6) then {skipTime 20};
+if ((paramsArray select 2) == 7) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
 if ((paramsArray select 3) == 0) then {[0] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 1) then {[0.25] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 2) then {[0.5] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 3) then {[0.75] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 4) then {[1] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 0) then {[0.2, 0.1, 43] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 1) then {[0.4, 0.15, 44] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 2) then {[0.8, 0.16, 45] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 0) then {[0.15, 0.05, 48] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 1) then {[0.4, 0.05, 50] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 2) then {[0.85, 0.05, 65] call BIS_fnc_setFog;
 if ((paramsArray select 4) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _elev = (random 10) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 4) then {[0, 0, 0] call BIS_fnc_setFog;
 if ((paramsArray select 8) == 1) then {nul = [] execVM "scripts\radiosounds.sqf"};
 if ((paramsArray select 14) == 1) then {
 									independent setFriend [west, 1];
