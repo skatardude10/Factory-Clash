@@ -134,6 +134,13 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 1;
 	  };
+	  class AIArti
+	  {
+	    title = "AI JTAC Units able to Call Artillery";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
 };
 class CfgDebriefing
 {  

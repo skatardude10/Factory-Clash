@@ -1,5 +1,4 @@
 //Functions
-
 C_fnc_RespawnDir = compile preprocessFileLineNumbers "scripts\respawnDir.sqf";
 fn_netSay3D = compile preprocessFileLineNumbers "scripts\fn_netSay3D.sqf";
 Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team successfully extracted the HVT!";}; 

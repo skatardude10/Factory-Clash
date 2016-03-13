@@ -13,15 +13,16 @@ _null = [] spawn {
 			};
 			_distance2DX = vehicle _x distance backpackObj;
 			_PosX = getPos _x;
-			_vehicle = nearestObjects [_PosX, ["Car","Truck"], 100];
+			_vehicle = nearestObjects [_PosX, ["Car","Truck","Helicopter"], 100];
 			_enemiesNear = _x findNearestEnemy _PosX;
+			
 			if (vehicle _x == _x) then {
 				_x setBehaviour "AWARE"; _x setSpeedMode "FULL";
 				if (((isNull _enemiesNear) && ((count _vehicle) > 0)) && !(((behaviour _x) == "COMBAT") && (_distance2DX > 200))) then {_x assignAsDriver (_vehicle select 0); [_x] orderGetIn true;};
 			} else {
-				if (((behaviour _x) == "COMBAT") && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; _x action["Eject", vehicle _x];};
-				if ((_distance2DX < 175) && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; _x action["Eject", vehicle _x]; _x setBehaviour "COMBAT";};
-				if (!(isNull _enemiesNear) && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; _x action["Eject", vehicle _x]; _x setBehaviour "COMBAT";};
+				if (((behaviour _x) == "COMBAT") && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; if ((getPosATL _x) select 2 < 1.5) then {_x action["Eject", vehicle _x]} else {_x land "LAND"};};
+				if ((_distance2DX < 175) && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; if ((getPosATL _x) select 2 < 1.5) then {_x action["Eject", vehicle _x]} else {_x land "LAND"}; _x setBehaviour "COMBAT";};
+				if (!(isNull _enemiesNear) && !(_x == player)) then {doStop _x; sleep 1.5; [_x] orderGetIn false; unassignVehicle _x; if ((getPosATL _x) select 2 < 1.5) then {_x action["Eject", vehicle _x]} else {_x land "LAND"}; _x setBehaviour "COMBAT";};
 			};
 			_nearest=objNull;
 			_nearestdist=50;
