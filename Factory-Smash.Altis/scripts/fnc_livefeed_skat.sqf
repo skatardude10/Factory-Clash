@@ -96,12 +96,8 @@ if (local _player) then {
 
 [ [ 1, 0.8 ], 1.7 ] call fnc_resizePIP;
 
-while {alive _target && alive _source} do {
-BIS_livefeed camPrepareFov random [0.09, 0.22, 0.36];
-BIS_livefeed camCommitPrepared random [1,3,4];
-sleep random [4,5,8];
-}; 
 
-deletevehicle _source; [] call BIS_fnc_liveFeedTerminate;
+_feed = BIS_livefeed camPrepareFov 0.08;
+_feed = BIS_livefeed camCommitPrepared random 8;
 
 true

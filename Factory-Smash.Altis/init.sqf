@@ -84,9 +84,9 @@ if ((paramsArray select 3) == 4) then {[1] call BIS_fnc_setOvercast};
 if ((paramsArray select 3) == 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
 if ((paramsArray select 4) == 0) then {[0.15, 0.05, 48] call BIS_fnc_setFog};
 if ((paramsArray select 4) == 1) then {[0.4, 0.05, 50] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 2) then {[0.85, 0.05, 65] call BIS_fnc_setFog;
-if ((paramsArray select 4) == 3) then {_Fog = random 0.9; _Dens = random 0.3; _elev = (random 10) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 4) then {[0, 0, 0] call BIS_fnc_setFog;
+if ((paramsArray select 4) == 2) then {[0.85, 0.05, 65] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 3) then {_Fog = random [0.1,0.3,0.9]; _Dens = random [0.01,0.09,0.18]; _elev = (random [1,10,15]) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
+if ((paramsArray select 4) == 4) then {[0, 0, 0] call BIS_fnc_setFog};
 if ((paramsArray select 8) == 1) then {nul = [] execVM "scripts\radiosounds.sqf"};
 if ((paramsArray select 14) == 1) then {
 									independent setFriend [west, 1];
