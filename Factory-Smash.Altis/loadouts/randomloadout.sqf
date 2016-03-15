@@ -1,17 +1,17 @@
 _target = _this select 0;
 _gunAndMagArray = [
-	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag","muzzle_snds_H"],
-	["srifle_EBR_F","20Rnd_762x51_Mag","muzzle_snds_B"],
-	["srifle_DMR_01_F","10Rnd_762x54_Mag","muzzle_snds_B"],
+	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag",""],
+	["srifle_EBR_F","20Rnd_762x51_Mag",""],
+	["srifle_DMR_01_F","10Rnd_762x54_Mag",""],
 	["LMG_Zafir_F","150Rnd_762x54_Box_Tracer",""],
-	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer","muzzle_snds_H"],
+	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",""],
 	["arifle_Mk20_F","30Rnd_556x45_Stanag_Tracer_Red",""],
-	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
-	["arifle_MXM_Black_F","30Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
+	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer",""],
+	["arifle_MXM_Black_F","30Rnd_65x39_caseless_mag_Tracer",""],
 	["arifle_TRG21_F","30Rnd_556x45_Stanag_Tracer_Green",""],
 	["SMG_01_F","30Rnd_45ACP_Mag_SMG_01_tracer_green","muzzle_snds_acp"],
-	["arifle_MX_SW_Black_F","100Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
-	["LMG_Mk200_F","200Rnd_65x39_cased_Box","muzzle_snds_H_MG"]
+	["arifle_MX_SW_Black_F","100Rnd_65x39_caseless_mag_Tracer",""],
+	["LMG_Mk200_F","200Rnd_65x39_cased_Box","_MG"]
 ];
 
 _randomGunAndMagArray = _gunAndMagArray select (floor (random (count _gunAndMagArray)));

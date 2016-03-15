@@ -1,6 +1,6 @@
-if (!isServer && (player != player)) then { waitUntil {player == player}; waitUntil {time > 10}; };
+if (!isServer && (player != player)) then { waitUntil {player isEqualTo player}; waitUntil {time > 10}; };
 _bb = _this;
-if (player == _bb) then {
+if (player isEqualTo _bb) then {
     _color=switch (side player) do {case west: {"B_UAV_01_F"}; case east: {"O_UAV_01_F"}; case resistance: {"I_UAV_01_F"}; };
 	_uav = createVehicle [_color, getPos _bb, [], 0, "FLY"];
 	createVehicleCrew _uav;
@@ -31,7 +31,7 @@ if (player == _bb) then {
 							{_uav reveal [_x, 4]} forEach playableUnits;
 							_enemyCompare = _enemy;
 							_enemy = _uav findNearestEnemy _uav; 
-							if (_enemyCompare == _enemy) then {} else {_enemyCompare = _enemy; [] call BIS_fnc_liveFeedTerminate; [_uav, _enemy, _player, 2] execVM "scripts\fnc_livefeed_skat.sqf";};
+							if (_enemyCompare isEqualTo _enemy) then {} else {_enemyCompare = _enemy; [] call BIS_fnc_liveFeedTerminate; [_uav, _enemy, _player, 2] execVM "scripts\fnc_livefeed_skat.sqf";};
 							if (isNull _enemy) then {sleep 2;} else {
 								_enemyPos = getPos _enemy;
 								_uav lockCameraTo [_enemy, [0]];

@@ -1,8 +1,8 @@
 _target = _this select 0;
 _gunAndMagArray = [
-	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag","muzzle_snds_H"],
-	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer","muzzle_snds_H"],
-	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
+	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag",""],
+	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",""],
+	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer",""],
 	["arifle_Mk20C_plain_F","30Rnd_556x45_Stanag",""],
 	["arifle_Mk20_F","30Rnd_556x45_Stanag_Tracer_Red",""],
 	["arifle_TRG21_F","30Rnd_556x45_Stanag",""],

@@ -1,14 +1,14 @@
 _target = _this select 0;
 _gunAndMagArray = [
-	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag","muzzle_snds_H"],
-	["arifle_MXM_F","30Rnd_65x39_caseless_mag","muzzle_snds_H"],
-	["srifle_EBR_F","20Rnd_762x51_Mag","muzzle_snds_B"],
-	["srifle_DMR_01_F","10Rnd_762x54_Mag","muzzle_snds_B"],
-	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer","muzzle_snds_H"],
-	["arifle_MXM_Black_F","30Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
-	["arifle_MX_SW_Black_F","100Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"],
-	["srifle_EBR_F","20Rnd_762x51_Mag","muzzle_snds_B"],
-	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer","muzzle_snds_H"]
+	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag",""],
+	["arifle_MXM_F","30Rnd_65x39_caseless_mag",""],
+	["srifle_EBR_F","20Rnd_762x51_Mag",""],
+	["srifle_DMR_01_F","10Rnd_762x54_Mag",""],
+	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",""],
+	["arifle_MXM_Black_F","30Rnd_65x39_caseless_mag_Tracer",""],
+	["arifle_MX_SW_Black_F","100Rnd_65x39_caseless_mag_Tracer",""],
+	["srifle_EBR_F","20Rnd_762x51_Mag",""],
+	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer",""]
 ];
 
 

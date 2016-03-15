@@ -9,14 +9,14 @@ while {true} do {
 	_sideScore = scoreSide (side BoostGuyUnit);
 	
 //Do not need to: Select based on Parameter State
-if ((paramsArray select 9) == 1) then {
-	if ((side BoostGuyUnit) == west) then {
+if ((paramsArray select 9) isEqualTo 1) then {
+	if ((side BoostGuyUnit) isEqualTo west) then {
 		_sideColor = "#0000ff"
 		} else {
-			if ((side BoostGuyUnit) == east) then {
+			if ((side BoostGuyUnit) isEqualTo east) then {
 			_sideColor = "#ff0000"
 			} else {
-				if ((side BoostGuyUnit) == resistance) then {				
+				if ((side BoostGuyUnit) isEqualTo resistance) then {				
 				_sideColor = "#00ff00"
 				} else {
 					_sideColor = "##000000";
@@ -24,13 +24,13 @@ if ((paramsArray select 9) == 1) then {
 						}
 					} 
 				};
-	if ((side BoostGuyUnit) == west) then {
+	if ((side BoostGuyUnit) isEqualTo west) then {
 		_sideName = "Blufor"
 		} else {
-			if ((side BoostGuyUnit) == east) then {
+			if ((side BoostGuyUnit) isEqualTo east) then {
 				_sideName = "Opfor"
 				} else {
-					if ((side BoostGuyUnit) == resistance) then {
+					if ((side BoostGuyUnit) isEqualTo resistance) then {
 						_sideName = "Indfor"
 						} else {_sideName = "No One"}
 

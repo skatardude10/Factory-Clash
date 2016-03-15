@@ -1,11 +1,11 @@
 _JIPplayer = _this select 0;
-if ((paramsArray select 5) == 1) then {nul = [] execVM "scripts\intro.sqf"};
-if ((paramsArray select 10) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "scripts\Damaged.sqf"}]};
-if ((paramsArray select 7) == 0) then {enableRadio false;};
-if ((paramsArray select 6) == 1) then {nul = [] execVM "scripts\IntelLines.sqf"};
-if ((paramsArray select 1) == 1) then {nul = [] execVM "scripts\playertracker.sqf"};
+if ((paramsArray select 5) isEqualTo 1) then {nul = [] execVM "scripts\intro.sqf"};
+if ((paramsArray select 10) isEqualTo 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "scripts\Damaged.sqf"}]};
+if ((paramsArray select 7) isEqualTo 0) then {enableRadio false;};
+if ((paramsArray select 6) isEqualTo 1) then {nul = [] execVM "scripts\IntelLines.sqf"};
+if ((paramsArray select 1) isEqualTo 1) then {nul = [] execVM "scripts\playertracker.sqf"};
 _JIPplayer addeventhandler ["respawn","0 = _this execVM 'scripts\respawndirstart.sqf'"];
-if ((paramsArray select 11) == 1) then 
+if ((paramsArray select 11) isEqualTo 1) then 
 	{
 	_JIPplayer addEventHandler ["FiredNear",{
 	_calcDist = (_this select 0) distance (_this select 1);
@@ -19,7 +19,7 @@ if ((paramsArray select 11) == 1) then
 			_Caliber = _Caliber / 11;
 			_Power = (1/(1+((1.5^-5)*_Distance)) * 2.5) * _Caliber; 
 			addCamShake [_Power, ((_Power + 3) / 14), (20 / (_Caliber + 1))];
-				if ((paramsArray select 12) == 1) then {
+				if ((paramsArray select 12) isEqualTo 1) then {
 					[_Power,_Caliber,_Distance] spawn {
 								_Power = _this select 0;
 								_Distance = (_this select 2) + 1;

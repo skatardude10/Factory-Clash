@@ -1,7 +1,7 @@
 ["PlayerTracker","onEachFrame",
 {
     {
-	if(((_x != player) && (player distance _x < 300)) || ((side _x == side player) && (_x != player))) then {
+	if(((_x != player) && (player distance _x < 300)) || ((side _x isEqualTo side player) && (_x != player))) then {
 		_dam = damage _x;
 		_position = eyePos _x;
 		_position = ASLToATL _position;
@@ -19,7 +19,7 @@
 		_friendAlpha = (_alphaMod * 4);
 		if (_friendAlpha > 0.75) then {_friendAlpha = 0.75};
 		_friendMod = 1;
-		if (side _x == side player) then [{_friendMod = 0},{_friendMod = 1}];
+		if (side _x isEqualTo side player) then [{_friendMod = 0},{_friendMod = 1}];
 		_color = [_friendMod, _redMod, _yelMod, _alphaMod];
 		if(_dam > 0.51) 
 		then
@@ -29,7 +29,7 @@
 			}
 		else 
 			{ 
-			if (side _x == side player) then {
+			if (side _x isEqualTo side player) then {
 				if (vehicle _x != _x) then {
 					drawIcon3D ["\A3\ui_f\data\map\Markers\NATO\c_car.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,format["%1",_profileName],_distSize,0.02,"puristaMedium","Center",True];
 				} else 
@@ -54,7 +54,7 @@
 {
 _vehicles = (position player) nearEntities [["Air"], 400];
     {
-	if(((_x != player) && (player distance _x < 300)) || ((side _x == side player) && (_x != player))) then {
+	if(((_x != player) && (player distance _x < 300)) || ((side _x isEqualTo side player) && (_x != player))) then {
 		_dam = damage _x;
 		_position = eyePos _x;
 		_position = ASLToATL _position;
@@ -72,7 +72,7 @@ _vehicles = (position player) nearEntities [["Air"], 400];
 		_friendAlpha = (_alphaMod * 4);
 		if (_friendAlpha > 0.75) then {_friendAlpha = 0.75};
 		_friendMod = 1;
-		if (side _x == side player) then [{_friendMod = 0},{_friendMod = 1}];
+		if (side _x isEqualTo side player) then [{_friendMod = 0},{_friendMod = 1}];
 		_color = [_friendMod, _redMod, _yelMod, _alphaMod];
 		if(_dam > 0.51) 
 		then
@@ -82,7 +82,7 @@ _vehicles = (position player) nearEntities [["Air"], 400];
 			}
 		else 
 			{ 
-			if (side _x == side player) then {
+			if (side _x isEqualTo side player) then {
 				if (vehicle _x != _x) then {
 					drawIcon3D ["\A3\ui_f\data\map\Markers\NATO\c_car.paa", [_friendMod, _redMod, _yelMod, _friendAlpha], [(visiblePosition _x) select 0, (visiblePosition _x) select 1, _position select 2], _distSize, _distSize, 1,"",_distSize,0.02,"puristaMedium","Center",True];
 				} else 

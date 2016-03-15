@@ -1,4 +1,4 @@
-if ((paramsArray select 17) == 1) then {
+if ((paramsArray select 17) isEqualTo 1) then {
 
 while {!isPlayer JTACBLUF} do { 
 _enemiesNear = JTACBLUF findNearestEnemy JTACBLUF;

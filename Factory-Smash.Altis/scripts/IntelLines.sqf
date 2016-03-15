@@ -8,7 +8,7 @@
 		if (_distance < 20) then
 		{
 			{
-			if !((side _x) == (side BoostGuyUnit)) then
+			if !((side _x) isEqualTo (side BoostGuyUnit)) then
 				{
 				if (BoostGuyUnit != _x) then 
 					{
@@ -33,20 +33,20 @@
 					_alphaMod = 0.1/(0.1+((7^-1)*_distBetween));
 					_sideColor = [1,1,1,_alphaMod];
 					if (_alphaMod < 0.03) then {_alphaMod = 0};
-					if ((side _x) == west) then {
+					if ((side _x) isEqualTo west) then {
 					_sideColor = [0,0,1,_alphaMod];
 					} else {
-						if ((side _x) == east) then {
+						if ((side _x) isEqualTo east) then {
 							_sideColor = [1,0,0,_alphaMod];
 						} else {
-							if ((side _x) == resistance) then {
+							if ((side _x) isEqualTo resistance) then {
 								_sideColor = [0,1,0,_alphaMod];
 							} else {
 								_sideColor = [1,1,1,_alphaMod];
 							}
 						};
 					};
-					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, 0.5, 0.5, 1,"puristaMedium",1,0.02];
+					drawIcon3D ["\A3\ui_f\data\map\Markers\Military\dot_ca.paa", [1,_redMod,_yelMod,_alphaMod], _CirclePos, 0.5, 0.5, 1,"",1,0.02,"puristaMedium"];
 					drawLine3d [_CirclePos, _Xpos, _sideColor];
 					_position = eyePos BoostGuyUnit;
 					//_position = ASLToATL _position;

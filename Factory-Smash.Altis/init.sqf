@@ -1,5 +1,6 @@
 //Functions
 C_fnc_RespawnDir = compile preprocessFileLineNumbers "scripts\respawnDir.sqf";
+car_chase_fnc = compile preprocessFileLineNumbers "functions\car_chase_fnc.sqf";
 fn_netSay3D = compile preprocessFileLineNumbers "scripts\fn_netSay3D.sqf";
 Tag_FNC_Winner = {["end1",True,5] call BIS_fnc_endMission;hint "Your team successfully extracted the HVT!";}; 
 Tag_FNC_loser = {["end2",false,5] call BIS_fnc_endMission;hint "Your team failed to extract the HVT :-(";}; 
@@ -40,7 +41,7 @@ GameFinished = false;
 if(!isServer) then {waitUntil{!isNull player}};
 
 //Scoreboard spawned for all units if Enabled//
-if ((paramsArray select 13) == 1) then {
+if ((paramsArray select 13) isEqualTo 1) then {
 	h = [] spawn {
 		while {!(GameFinished)} do {
 			hintSilent parseText format["<t size='1.25'>Score Limit: %4</t><br /><t size='1.5' color='#0000ff'>Blufor = %1</t>
@@ -68,31 +69,31 @@ nul = [] execVM "scripts\markers.sqf";
 nul = [] execVM "scripts\chase.sqf";
 
 //Parameters to select - ref in description.ext//
-if ((paramsArray select 2) == 0) then {skipTime 0};
-if ((paramsArray select 2) == 1) then {skipTime 4};
-if ((paramsArray select 2) == 2) then {skipTime 8};
-if ((paramsArray select 2) == 3) then {skipTime 12};
-if ((paramsArray select 2) == 4) then {skipTime 16};
-if ((paramsArray select 2) == 5) then {skipTime 18};
-if ((paramsArray select 2) == 6) then {skipTime 20};
-if ((paramsArray select 2) == 7) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
-if ((paramsArray select 3) == 0) then {[0] call BIS_fnc_setOvercast};
-if ((paramsArray select 3) == 1) then {[0.25] call BIS_fnc_setOvercast};
-if ((paramsArray select 3) == 2) then {[0.5] call BIS_fnc_setOvercast};
-if ((paramsArray select 3) == 3) then {[0.75] call BIS_fnc_setOvercast};
-if ((paramsArray select 3) == 4) then {[1] call BIS_fnc_setOvercast};
-if ((paramsArray select 3) == 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
-if ((paramsArray select 4) == 0) then {[0.15, 0.05, 48] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 1) then {[0.4, 0.05, 50] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 2) then {[0.85, 0.05, 65] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 3) then {_Fog = random [0.1,0.3,0.9]; _Dens = random [0.01,0.09,0.18]; _elev = (random [1,10,15]) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
-if ((paramsArray select 4) == 4) then {[0, 0, 0] call BIS_fnc_setFog};
-if ((paramsArray select 8) == 1) then {nul = [] execVM "scripts\radiosounds.sqf"};
-if ((paramsArray select 14) == 1) then {
+if ((paramsArray select 2) isEqualTo 0) then {skipTime 0};
+if ((paramsArray select 2) isEqualTo 1) then {skipTime 4};
+if ((paramsArray select 2) isEqualTo 2) then {skipTime 8};
+if ((paramsArray select 2) isEqualTo 3) then {skipTime 12};
+if ((paramsArray select 2) isEqualTo 4) then {skipTime 16};
+if ((paramsArray select 2) isEqualTo 5) then {skipTime 18};
+if ((paramsArray select 2) isEqualTo 6) then {skipTime 20};
+if ((paramsArray select 2) isEqualTo 7) then {_time = random 24;_minute = random 1;skipTime (_time + _minute)};
+if ((paramsArray select 3) isEqualTo 0) then {[0] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) isEqualTo 1) then {[0.25] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) isEqualTo 2) then {[0.5] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) isEqualTo 3) then {[0.75] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) isEqualTo 4) then {[1] call BIS_fnc_setOvercast};
+if ((paramsArray select 3) isEqualTo 5) then {_overCast = random 1;[_overCast] call BIS_fnc_setOvercast};
+if ((paramsArray select 4) isEqualTo 0) then {[0.15, 0.05, 48] call BIS_fnc_setFog};
+if ((paramsArray select 4) isEqualTo 1) then {[0.4, 0.05, 50] call BIS_fnc_setFog};
+if ((paramsArray select 4) isEqualTo 2) then {[0.85, 0.05, 65] call BIS_fnc_setFog};
+if ((paramsArray select 4) isEqualTo 3) then {_Fog = random [0.1,0.3,0.9]; _Dens = random [0.01,0.09,0.18]; _elev = (random [1,10,15]) + 39; [_Fog, _Dens, _elev] call BIS_fnc_setFog};
+if ((paramsArray select 4) isEqualTo 4) then {[0, 0, 0] call BIS_fnc_setFog};
+if ((paramsArray select 8) isEqualTo 1) then {nul = [] execVM "scripts\radiosounds.sqf"};
+if ((paramsArray select 14) isEqualTo 1) then {
 									independent setFriend [west, 1];
 									west setFriend [independent, 1];
 									};
-if ((paramsArray select 15) == 1) then {
+if ((paramsArray select 15) isEqualTo 1) then {
 									independent setFriend [east, 1];
 									east setFriend [independent, 1];
 									};

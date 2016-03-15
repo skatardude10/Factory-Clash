@@ -21,25 +21,25 @@ private ["_source"];
 _source = _this param [0, objNull, [objNull, []]];
 
 // Ensure a valid source is defined
-if (typeName _source == typeName objNull) then {
+if (typeName _source isEqualTo typeName objNull) then {
 	_source = [_source];
 	{if (isNull _x) then {_source = _source - [_x]}} forEach _source;
 };
 
-if (count _source == 0) exitWith {"Invalid source defined" call BIS_fnc_error; false};
-if (count _source == 1) then {_source = _source select 0};
+if (count _source isEqualTo 0) exitWith {"Invalid source defined" call BIS_fnc_error; false};
+if (count _source isEqualTo 1) then {_source = _source select 0};
 
 private ["_target"];
 _target = _this param [1, objNull, [objNull, []]];
 
 // Ensure a valid target is defined
-if (typeName _target == typeName objNull) then {
+if (typeName _target isEqualTo typeName objNull) then {
 	_target = [_target];
 	{if (isNull _x) then {_target = _target - [_x]}} forEach _target;
 };
 
-if (count _target == 0) exitWith {"Invalid target defined" call BIS_fnc_error; false};
-if (count _target == 1) then {_target = _target select 0};
+if (count _target isEqualTo 0) exitWith {"Invalid target defined" call BIS_fnc_error; false};
+if (count _target isEqualTo 1) then {_target = _target select 0};
 
 // Terminate previous feed
 [] call BIS_fnc_liveFeedTerminate;
