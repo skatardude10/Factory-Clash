@@ -1,7 +1,6 @@
-_null = [] spawn {
-	while {true} do { 
-	[] call car_chase_fnc;
-	sleep 7;
-	};
+while {true} do { 
+[] spawn car_chase_fnc;
+sleep 7;
 };
+
 

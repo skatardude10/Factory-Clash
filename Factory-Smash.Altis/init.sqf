@@ -67,6 +67,8 @@ nul = [] execVM "scripts\CallFunctionsObj.sqf";
 nul = [] execVM "scripts\score.sqf";
 nul = [] execVM "scripts\markers.sqf";
 nul = [] execVM "scripts\chase.sqf";
+nul = [] execVM "scripts\movespawns.sqf"; 
+{_x addEventHandler ["Hit", {0 = _this execVM "scripts\staminaHit.sqf"}]} forEach playableUnits;
 
 //Parameters to select - ref in description.ext//
 if ((paramsArray select 2) isEqualTo 0) then {skipTime 0};

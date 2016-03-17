@@ -23,10 +23,10 @@ _magazine = _randomGunAndMagArray select 1;
 
 
 
-_outfit = ["U_I_CombatUniform_shortsleeve","U_I_CombatUniform"] call BIS_fnc_selectRandom;
-_vest = ["V_PlateCarrierIAGL_dgtl","V_PlateCarrierIAGL_oli","V_PlateCarrierGL_rgr"] call BIS_fnc_selectRandom;
-_backpack = ["B_Carryall_oli","B_Kitbag_sgg","B_Kitbag_rgr"] call BIS_fnc_selectRandom;
-_hat = ["H_HelmetCrew_I","H_HelmetIA","H_PilotHelmetHeli_I"] call BIS_fnc_selectRandom;
+_outfit = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","U_I_OfficerUniform"] call BIS_fnc_selectRandom;
+_vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl"] call BIS_fnc_selectRandom;
+_backpack = ["B_AssaultPack_dgtl","B_AssaultPack_rgr","B_Kitbag_sgg","B_FieldPack_oli","B_AssaultPack_blk"] call BIS_fnc_selectRandom;
+_hat = ["H_Watchcap_camo","H_Watchcap_khk","H_Booniehat_dgtl","H_Cap_oli_hs","H_Cap_blk_Raven","H_MilCap_dgtl","H_Cap_headphones","H_Shemag_olive_hs"] call BIS_fnc_selectRandom;
 _goggles = ["G_Balaclava_oli","G_Bandanna_oli","G_Shades_Green","G_Shades_Blue","G_Bandanna_sport","G_Balaclava_oli","G_Sport_Greenblack","G_Sport_Greenblack","G_Bandanna_oli","G_Spectacles_Tinted"] call BIS_fnc_selectRandom;
 
 

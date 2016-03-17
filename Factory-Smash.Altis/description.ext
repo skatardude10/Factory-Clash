@@ -27,28 +27,28 @@ class Params
 	    title = "Visual Unit Indicators";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 0;
+        default = 1;
 	  };
 	  class dayTime
 	  {
 	    title = "Time of Day";
         values[] = {0,1,2,3,4,5,6,7};
         texts[] = {"0000","0400","0800","1200","1600","1800","2000","Random"};
-        default = 2;
+        default = 1;
 	  };
 	  class settOvercast
 	  {
 	    title = "Overcast Level";
         values[] = {0,1,2,3,4,5};
         texts[] = {"None","1/4","Half","3/4","Full","Random"};
-        default = 1;
+        default = 2;
 	  };
 	  class fog
 	  {
 	    title = "Fog Level";
         values[] = {0,1,2,3,4};
         texts[] = {"Little","Some","Lots","Random","None"};
-        default = 0;
+        default = 4;
 	  };
 	  class iintro
 	  {
@@ -170,4 +170,14 @@ class CfgDebriefing
         picture = "";
         pictureColor[] = {1,1,1,1};
     };
+};
+class CfgMusic
+{
+	sounds[] = {grunt};
+	class grunt
+	{
+		name = "grunt";
+		sound[] = {"sounds\grunt.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
 };

@@ -22,9 +22,9 @@ _bipod = ["bipod_01_F_blk","bipod_03_F_blk","bipod_01_F_snd"] call BIS_fnc_selec
 _optic = ["optic_MRCO","optic_DMS","optic_Hamr","optic_Arco","optic_AMS","optic_Nightstalker"] call BIS_fnc_selectRandom;
 
 
-_outfit = ["U_I_CombatUniform","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","U_C_HunterBody_grn","U_BG_leader","U_BG_Guerilla3_1","U_I_GhillieSuit"] call BIS_fnc_selectRandom;
-_vest = ["V_Chestrig_oli","V_TacVest_camo","V_TacVest_khk","V_Chestrig_rgr","V_PlateCarrierIA1_dgtl","V_BandollierB_oli","V_BandollierB_rgr","V_I_G_resistanceLeader_F"] call BIS_fnc_selectRandom;
-_hat = ["H_ShemagOpen_tan", "H_Shemag_olive","H_MilCap_dgtl","H_Cap_blk_Raven","H_Booniehat_dgtl","H_Watchcap_camo","H_Booniehat_oli","H_Cap_oli_hs"] call BIS_fnc_selectRandom;
+_outfit = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","U_I_OfficerUniform"] call BIS_fnc_selectRandom;
+_vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl"] call BIS_fnc_selectRandom;
+_hat = ["H_Watchcap_camo","H_Watchcap_khk","H_Booniehat_dgtl","H_Cap_oli_hs","H_Cap_blk_Raven","H_MilCap_dgtl","H_Cap_headphones","H_Shemag_olive_hs"] call BIS_fnc_selectRandom;
 _goggles = ["G_Shades_Blue","G_Bandanna_sport","G_Balaclava_oli","G_Sport_Greenblack","G_Sport_Greenblack","G_Bandanna_oli","G_Spectacles_Tinted"] call BIS_fnc_selectRandom;
 
 
