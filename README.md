@@ -1,6 +1,6 @@
 ## Factory Clash game mode for ArmA 3
 
-![screen](http://images.akamai.steamusercontent.com/ugc/320124366274275029/A2DE6B94BC8884D1461499EB2AFEDD65A8402EF1/)
+![screen](http://i.imgur.com/P8644nR.jpg)
 
 **Factory Clash:** A Three-Team HVT Escort / Extract Mission. (Run as Multiplayer) 
 
