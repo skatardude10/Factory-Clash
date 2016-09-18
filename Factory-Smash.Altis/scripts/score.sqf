@@ -37,7 +37,7 @@ if ((paramsArray select 9) isEqualTo 1) then {
 					} 
 				};
 
-if (NearIntel) then {hintSilent parseText format ["<t size='1.45'>%1</t> <t size='1.25'><br />is escorting the intel officer!</t> <br /><t size='1.5' color='%4'>%3's Score: %2</t>",_sideName, _sideScore, _sideName,_sideColor]};
+if (NearIntel) then {hintSilent parseText format ["<t size='1.25' color='%4'>%1</t><t size='1.25'> Has the VIP!</t>",_sideName, _sideScore, _sideName,_sideColor]};
 };
 
 };

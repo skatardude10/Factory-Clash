@@ -6,11 +6,10 @@ onLoadName = "[TDM/CO/PvP 21] Factory-Clash";
 overviewPicture = "pictures\overviewimageClash.paa";
 joinUnassigned = 0;
 author = "Skatardude10";
-respawnTemplates[] = {"MenuPosition"};
+//respawnTemplates[] = {"MenuPosition"};
 corpseManagerMode = 1;
 class Header
 {
-	gameType = Coop; // MP mission type
 	maxPlayer = 21;
 };
 class Params
@@ -27,14 +26,14 @@ class Params
 	    title = "Visual Unit Indicators";
         values[] = {0,1};
         texts[] = {"Disable","Enable"};
-        default = 1;
+        default = 0;
 	  };
 	  class dayTime
 	  {
 	    title = "Time of Day";
         values[] = {0,1,2,3,4,5,6,7};
         texts[] = {"0000","0400","0800","1200","1600","1800","2000","Random"};
-        default = 1;
+        default = 2;
 	  };
 	  class settOvercast
 	  {
@@ -148,6 +147,34 @@ class Params
         texts[] = {"Disable","Enable"};
         default = 1;
 	  };
+	  class HitMarkers
+	  {
+	    title = "Hit Markers & Hit Sounds";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class StaminaHit
+	  {
+	    title = "Stamina Effects and Falling on Hit";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class AISeekMissiles
+	  {
+	    title = "Rocketeers with Seeking Missiles";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
+	  class ApexGuns
+	  {
+	    title = "Apex Weapons";
+        values[] = {0,1};
+        texts[] = {"Disable","Enable"};
+        default = 1;
+	  };
 };
 class CfgDebriefing
 {  
@@ -173,11 +200,77 @@ class CfgDebriefing
 };
 class CfgMusic
 {
-	sounds[] = {grunt};
+	sounds[] = {grunt,grunt1,grunt2,grunt3,grunt4,grunt5,grunt6,grunt7,hit,launch,lock,rocketfly};
 	class grunt
 	{
 		name = "grunt";
 		sound[] = {"sounds\grunt.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt1
+	{
+		name = "grunt1";
+		sound[] = {"sounds\grunt1.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt2
+	{
+		name = "grunt2";
+		sound[] = {"sounds\grunt2.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt3
+	{
+		name = "grunt3";
+		sound[] = {"sounds\grunt3.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt4
+	{
+		name = "grunt4";
+		sound[] = {"sounds\grunt4.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt5
+	{
+		name = "grunt5";
+		sound[] = {"sounds\grunt5.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt6
+	{
+		name = "grunt6";
+		sound[] = {"sounds\grunt6.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class grunt7
+	{
+		name = "grunt7";
+		sound[] = {"sounds\grunt7.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class hit
+	{
+		name = "hit";
+		sound[] = {"sounds\hit.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class launch
+	{
+		name = "launch";
+		sound[] = {"sounds\launch.wav", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class lock
+	{
+		name = "lock";
+		sound[] = {"sounds\lock.ogg", db+10, 1.0};
+		titles[] = {0,""};
+	};
+	class rocketfly
+	{
+		name = "lock";
+		sound[] = {"sounds\rocketfly.ogg", db+10, 1.0};
 		titles[] = {0,""};
 	};
 };
