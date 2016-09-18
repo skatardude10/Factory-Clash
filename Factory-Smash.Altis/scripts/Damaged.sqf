@@ -4,16 +4,12 @@ if !(isPlayer _unit) exitWith {};
 if !(alive _unit) exitWith {};
 	[100] call BIS_fnc_bloodEffect;
 	call BIS_fnc_fatigueEffect;
-	_sounds = ["grunt.ogg","grunt2.ogg","grunt3.ogg","grunt4.ogg","grunt5.ogg","grunt6.ogg","grunt7.ogg"];
 	_soundPath = [(str missionConfigFile), 0, -15] call BIS_fnc_trimString;
-    _soundToPlay = _sounds select (floor (random (count _sounds)));
-	_finalSound = _soundPath + "sounds\" + _soundToPlay;
-	if ((paramsArray select 20) isEqualTo 1) then {
-		_stamina = getStamina _unit; 
-		_newStamina = _stamina - 25; 
-		_unit setStamina _newStamina; 
-		[_unit] spawn {_this select 0 forceWalk true; sleep random [1,4,5]; _this select 0 forceWalk false;};
-	};
+	_soundToPlay = _soundPath + "sounds\grunt.ogg";
+	_stamina = getStamina _unit; 
+	_newStamina = _stamina - 25; 
+	_unit setStamina _newStamina; 
+	[_unit] spawn {_this select 0 forceWalk true; sleep random [1,4,5]; _this select 0 forceWalk false;};
 	_hndl1 = ppEffectCreate ["RadialBlur", 100];  
 	_hndl2 = ppEffectCreate ["ColorCorrections", 200];    
 	_hndl3 = ppEffectCreate ["ChromAberration", 300];
@@ -21,24 +17,10 @@ if !(alive _unit) exitWith {};
 	_hndl2 ppEffectEnable true;     
 	_hndl3 ppEffectEnable true;  
 	_dmg = Damage _unit;
-	if ((random 10) > 4) then 
-	{
-		playSound3D [_finalSound, _unit, false, getPosASL _unit, (4 + (_dmg * 4)), (random [0.75,0.95,1.1]), 50];
-	};
-	if ((paramsArray select 20) isEqualTo 1) then {
-	_hitDmg = _this select 2;
-		if ((_hitDmg > 0.2) && ((random 10) > 3.5)) then 
-		{
-			_reset = getAnimSpeedCoef _unit;
-			_unit setAnimSpeedCoef 1.4;
-			_hitAnims = ["AmovPknlMstpSrasWrflDnon_AmovPpneMstpSrasWrflDnon","AmovPknlMstpSrasWrflDnon_AadjPpneMstpSrasWrflDleft","AmovPknlMstpSrasWrflDnon_AadjPpneMstpSrasWrflDright"];
-			_randomAnim = _hitAnims select (floor (random (count _hitAnims)));
-			_unit playmoveNow _randomAnim;
-		};
-		if (alive _unit && _dmg <= 0.25) then {	_unit setAnimSpeedCoef (1 - _dmg);};
-		if (_dmg > 0.1) then {_unit setCustomAimCoef (_dmg * 15);};
-		if (alive _unit && _dmg > 0.25) then {_unit setAnimSpeedCoef 0.7;_unit setCustomAimCoef (_dmg * 45);};
-	};
+	playSound3D [_soundToPlay, _unit, false, getPosASL _unit, (4 + (_dmg * 4)), (random [0.75,0.95,1.1]), 50];
+if (alive _unit && _dmg <= 0.25) then {	_unit setAnimSpeedCoef (1 - _dmg);};
+if (_dmg > 0.1) then {_unit setCustomAimCoef (_dmg * 15);};
+if (alive _unit && _dmg > 0.25) then {_unit setAnimSpeedCoef 0.7;_unit setCustomAimCoef (_dmg * 45);};
 while {alive _unit} do {
 	_dmg = Damage _unit;
 	_pwr = ((_dmg ^ 3) * 0.3);

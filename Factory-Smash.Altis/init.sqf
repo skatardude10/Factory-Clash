@@ -44,33 +44,31 @@ if(!isServer) then {waitUntil{!isNull player}};
 if ((paramsArray select 13) isEqualTo 1) then {
 	h = [] spawn {
 		while {!(GameFinished)} do {
-			hintSilent parseText format["<t size='1.25' color='#0000ff'>Blufor</t><t size='1.25'> = %1</t>
-										<br /><t size='1.25' color='#ff0000'>Opfor</t><t size='1.25'> = %2</t>
-										<br /><t size='1.25' color='#00ff00'>Indfor</t><t size='1.25'> = %3</t>",
+			hintSilent parseText format["<t size='1.25'>Score Limit: %4</t><br /><t size='1.5' color='#0000ff'>Blufor = %1</t>
+										<br /><t size='1.5' color='#ff0000'>Opfor = %2</t>
+										<br /><t size='1.5' color='#00ff00'>Indfor = %3</t>",
 										scoreSide west,
 										scoreSide east, scoreSide
-										resistance];
+										resistance,
+										(paramsArray select 0)];
 			sleep 10;
 		};
 	};
 };
-//Client scripts//
+//Client scripts\/
 {if (_x iskindof "Building") then {_x allowDamage false}} forEach ((position ref1) nearObjects 500);
 BoostGuyUnit = nil;
 NearIntel = False;
 nul = [] execVM "scripts\backpack.sqf";
-nul = [] execVM "loadouts\gearvars.sqf";
 
 //Server scripts//
 if (isServer) then {  
 nul = [] execVM "scripts\CallFunctionsObj.sqf";
 nul = [] execVM "scripts\score.sqf";
-nul = [] execVM "scripts\initRefs.sqf"; 
 nul = [] execVM "scripts\markers.sqf";
 nul = [] execVM "scripts\chase.sqf";
 nul = [] execVM "scripts\movespawns.sqf"; 
-if ((paramsArray select 20) isEqualTo 1) then {{_x addEventHandler ["Hit", {0 = _this execVM "scripts\staminaHit.sqf"}]} forEach playableUnits;};
-
+{_x addEventHandler ["Hit", {0 = _this execVM "scripts\staminaHit.sqf"}]} forEach playableUnits;
 
 //Parameters to select - ref in description.ext//
 if ((paramsArray select 2) isEqualTo 0) then {skipTime 0};
