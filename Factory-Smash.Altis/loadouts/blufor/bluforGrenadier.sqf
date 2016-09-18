@@ -1,5 +1,5 @@
 _target = _this select 0;
-_randomGunAndMagArray = gunAndMagArrayJTAC select (floor (random (count gunAndMagArrayJTAC)));
+_randomGunAndMagArray = gunAndMagArrayGrenadier select (floor (random (count gunAndMagArrayGrenadier)));
 _gun = _randomGunAndMagArray select 0;
 _magazine = _randomGunAndMagArray select 1;
 _outfit = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam","U_I_G_Story_Protagonist_F","U_B_CTRG_1","U_B_CombatUniform_mcam_worn"] call BIS_fnc_selectRandom;
@@ -33,7 +33,8 @@ for "_i" from 1 to 2 do {_target addItemToVest "16Rnd_9x21_Mag";};
 for "_i" from 1 to 2 do {_target addItemToVest "HandGrenade";};
 _target addBackpack _backpack;
 _target addHeadgear _hat;
-for "_i" from 1 to 2 do {_target addItemToBackpack _magazine;};
+for "_i" from 1 to 4 do {_target addItemToBackpack _magazine;};
+for "_i" from 1 to 5 do {_target addItemToBackpack "1Rnd_HE_Grenade_shell";};
 _target addGoggles _goggles;
 
 comment "Add weapons";
