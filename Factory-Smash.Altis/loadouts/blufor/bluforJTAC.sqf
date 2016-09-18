@@ -1,16 +1,45 @@
 _target = _this select 0;
-_randomGunAndMagArray = gunAndMagArrayJTAC select (floor (random (count gunAndMagArrayJTAC)));
+_gunAndMagArray = [
+	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag",""],
+	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",""],
+	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer",""],
+	["arifle_Mk20C_plain_F","30Rnd_556x45_Stanag",""],
+	["arifle_Mk20_F","30Rnd_556x45_Stanag_Tracer_Red",""],
+	["arifle_TRG21_F","30Rnd_556x45_Stanag",""],
+	["srifle_EBR_F","20Rnd_762x51_Mag",""],
+	["SMG_01_F","30Rnd_45ACP_Mag_SMG_01",""]
+];
+
+_randomGunAndMagArray = _gunAndMagArray select (floor (random (count _gunAndMagArray)));
+
 _gun = _randomGunAndMagArray select 0;
 _magazine = _randomGunAndMagArray select 1;
+
+
+
+
 _outfit = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam","U_I_G_Story_Protagonist_F","U_B_CTRG_1","U_B_CombatUniform_mcam_worn"] call BIS_fnc_selectRandom;
 _vest = ["V_PlateCarrierGL_mtp","V_PlateCarrier2_blk","V_PlateCarrierSpec_mtp","V_PlateCarrier2_rgr","V_PlateCarrierGL_rgr","V_Chestrig_oli","V_PlateCarrierGL_blk"] call BIS_fnc_selectRandom;
 _backpack = ["B_AssaultPack_mcamo","B_Kitbag_mcamo","B_Carryall_cbr","B_Kitbag_rgr","B_Kitbag_cbr"] call BIS_fnc_selectRandom;
 _hat = ["H_MilCap_mcamo","H_HelmetB_light_black","H_Cap_tan_specops_US","H_Beret_02","H_Watchcap_camo","H_Cap_usblack","H_Cap_blk_ION"] call BIS_fnc_selectRandom;
 _goggles = ["G_Shades_Blue","G_Balaclava_combat","G_Bandanna_shades","G_Bandanna_khk","G_Bandanna_sport","G_Squares_Tinted","G_Shades_Blue","G_Bandanna_shades","G_Sport_BlackWhite","G_Tactical_Clear","G_Tactical_Black"] call BIS_fnc_selectRandom;
+
+
+
 _optic = ["optic_MRCO","optic_Holosight","optic_Aco","optic_ACO_grn","optic_Hamr","optic_Arco","optic_Aco_smg","optic_ACO_grn_smg"] call BIS_fnc_selectRandom;
+
 _bipod = ["bipod_01_F_blk","bipod_03_F_blk","bipod_01_F_snd"] call BIS_fnc_selectRandom;
+
+
+
 _face = ["WhiteHead_02","WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_11","WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_22_a","WhiteHead_22_l","WhiteHead_22_sa"] call BIS_fnc_selectRandom;
+
 _voice = ["Male01ENG","Male01ENGB","Male02ENG","Male02ENGB","Male03ENG","Male03ENGB","Male04ENG","Male04ENGB","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG"] call BIS_fnc_selectRandom; 
+
+
+
+
+
 
 //General Arsenal Stuff with guns, magazines, vests, uniforms, and optics array selections amended//
 comment "Remove existing items";

@@ -1,7 +1,6 @@
 _JIPplayer = _this select 0;
 if ((paramsArray select 5) isEqualTo 1) then {nul = [] execVM "scripts\intro.sqf"};
 if ((paramsArray select 10) == 1) then {_JIPplayer addEventHandler ["Hit", {0 = _this execVM "scripts\Damaged.sqf"}]};
-if ((paramsArray select 19) isEqualTo 1) then {{_x addEventHandler ["HitPart", {0 = _this execVM "scripts\hitMarkers.sqf"}]} forEach playableUnits;};
 if ((paramsArray select 7) isEqualTo 0) then {enableRadio false;};
 if ((paramsArray select 6) isEqualTo 1) then {nul = [] execVM "scripts\IntelLines.sqf"};
 if ((paramsArray select 1) isEqualTo 1) then {nul = [] execVM "scripts\playertracker.sqf"};
