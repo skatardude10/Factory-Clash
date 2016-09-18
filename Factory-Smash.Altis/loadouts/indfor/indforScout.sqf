@@ -1,41 +1,16 @@
 _target = _this select 0;
-_gunAndMagArray = [
-	["arifle_MX_Black_F","30Rnd_65x39_caseless_mag",""],
-	["arifle_MXM_F","30Rnd_65x39_caseless_mag",""],
-	["srifle_EBR_F","20Rnd_762x51_Mag",""],
-	["srifle_DMR_01_F","10Rnd_762x54_Mag",""],
-	["arifle_Katiba_F","30Rnd_65x39_caseless_green_mag_Tracer",""],
-	["arifle_MXM_Black_F","30Rnd_65x39_caseless_mag_Tracer",""],
-	["arifle_MX_SW_Black_F","100Rnd_65x39_caseless_mag_Tracer",""],
-	["srifle_EBR_F","20Rnd_762x51_Mag",""],
-	["arifle_MXC_F","30Rnd_65x39_caseless_mag_Tracer",""]
-];
-
-
-_randomGunAndMagArray = _gunAndMagArray select (floor (random (count _gunAndMagArray)));
-
+_randomGunAndMagArray = gunAndMagArrayScout select (floor (random (count gunAndMagArrayScout)));
 _gun = _randomGunAndMagArray select 0;
 _magazine = _randomGunAndMagArray select 1;
 _supressor =  _randomGunAndMagArray select 2;
-
 _bipod = ["bipod_01_F_blk","bipod_03_F_blk","bipod_01_F_snd"] call BIS_fnc_selectRandom;
 _optic = ["optic_MRCO","optic_DMS","optic_Hamr","optic_Arco","optic_AMS","optic_Nightstalker"] call BIS_fnc_selectRandom;
-
-
 _outfit = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","U_I_OfficerUniform"] call BIS_fnc_selectRandom;
 _vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl"] call BIS_fnc_selectRandom;
 _hat = ["H_Watchcap_camo","H_Watchcap_khk","H_Booniehat_dgtl","H_Cap_oli_hs","H_Cap_blk_Raven","H_MilCap_dgtl","H_Cap_headphones","H_Shemag_olive_hs"] call BIS_fnc_selectRandom;
 _goggles = ["G_Shades_Blue","G_Bandanna_sport","G_Balaclava_oli","G_Sport_Greenblack","G_Sport_Greenblack","G_Bandanna_oli","G_Spectacles_Tinted"] call BIS_fnc_selectRandom;
-
-
 _face = ["GreekHead_A3_01","GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04","GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09","GreekHead_A3_10_a","GreekHead_A3_10_l","GreekHead_A3_10_sa"] call BIS_fnc_selectRandom;
-
 _voice = ["Male01GRE","Male02GRE","Male03GRE","Male04GRE","Male05GRE","Male06GRE"] call BIS_fnc_selectRandom; 
-
-
-
-
-
 
 //General Arsenal Stuff with guns, magazines, vests, uniforms, and optics array selections amended//
 comment "Remove existing items";

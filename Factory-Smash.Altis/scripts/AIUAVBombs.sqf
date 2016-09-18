@@ -2,6 +2,7 @@
 		_target = _this select 0;
 		waitUntil {alive _target};
 		sleep random [30,55,120];
+		if !(alive _target) exitWith {};
 		_color = "B_UAV_01_F";
 		_color=switch (side _target) do {case west: {"B_UAV_01_F"}; case east: {"O_UAV_01_F"}; case resistance: {"I_UAV_01_F"}; default {"B_UAV_01_F"}; };
 		_uav = createVehicle [_color, [0,0,0], [], 0, "FLY"];

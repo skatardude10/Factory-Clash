@@ -1,16 +1,16 @@
 _target = _this select 0;
-_randomGunAndMagArray = gunAndMagArrayJTAC select (floor (random (count gunAndMagArrayJTAC)));
+_randomGunAndMagArray = gunAndMagArrayMachinegunner select (floor (random (count gunAndMagArrayMachinegunner)));
 _gun = _randomGunAndMagArray select 0;
 _magazine = _randomGunAndMagArray select 1;
-_outfit = ["U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam","U_I_G_Story_Protagonist_F","U_B_CTRG_1","U_B_CombatUniform_mcam_worn"] call BIS_fnc_selectRandom;
-_vest = ["V_PlateCarrierGL_mtp","V_PlateCarrier2_blk","V_PlateCarrierSpec_mtp","V_PlateCarrier2_rgr","V_PlateCarrierGL_rgr","V_Chestrig_oli","V_PlateCarrierGL_blk"] call BIS_fnc_selectRandom;
-_backpack = ["B_AssaultPack_mcamo","B_Kitbag_mcamo","B_Carryall_cbr","B_Kitbag_rgr","B_Kitbag_cbr"] call BIS_fnc_selectRandom;
-_hat = ["H_MilCap_mcamo","H_HelmetB_light_black","H_Cap_tan_specops_US","H_Beret_02","H_Watchcap_camo","H_Cap_usblack","H_Cap_blk_ION"] call BIS_fnc_selectRandom;
-_goggles = ["G_Shades_Blue","G_Balaclava_combat","G_Bandanna_shades","G_Bandanna_khk","G_Bandanna_sport","G_Squares_Tinted","G_Shades_Blue","G_Bandanna_shades","G_Sport_BlackWhite","G_Tactical_Clear","G_Tactical_Black"] call BIS_fnc_selectRandom;
+_outfit = ["U_I_CombatUniform","U_I_CombatUniform_shortsleeve","U_BG_Guerilla1_1","U_BG_Guerrilla_6_1","U_I_OfficerUniform"] call BIS_fnc_selectRandom;
+_vest = ["V_PlateCarrierIAGL_oli","V_PlateCarrierIA2_dgtl","V_PlateCarrierIAGL_dgtl"] call BIS_fnc_selectRandom;
+_backpack = ["B_AssaultPack_dgtl","B_AssaultPack_rgr","B_Kitbag_sgg","B_FieldPack_oli","B_AssaultPack_blk"] call BIS_fnc_selectRandom;
+_hat = ["H_Watchcap_camo","H_Watchcap_khk","H_Booniehat_dgtl","H_Cap_oli_hs","H_Cap_blk_Raven","H_MilCap_dgtl","H_Cap_headphones","H_Shemag_olive_hs"] call BIS_fnc_selectRandom;
+_goggles = ["G_Balaclava_oli","G_Bandanna_oli","G_Shades_Green","G_Shades_Blue","G_Bandanna_sport","G_Balaclava_oli","G_Sport_Greenblack","G_Sport_Greenblack","G_Bandanna_oli","G_Spectacles_Tinted"] call BIS_fnc_selectRandom;
 _optic = ["optic_MRCO","optic_Holosight","optic_Aco","optic_ACO_grn","optic_Hamr","optic_Arco","optic_Aco_smg","optic_ACO_grn_smg"] call BIS_fnc_selectRandom;
 _bipod = ["bipod_01_F_blk","bipod_03_F_blk","bipod_01_F_snd"] call BIS_fnc_selectRandom;
-_face = ["WhiteHead_02","WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_11","WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_22_a","WhiteHead_22_l","WhiteHead_22_sa"] call BIS_fnc_selectRandom;
-_voice = ["Male01ENG","Male01ENGB","Male02ENG","Male02ENGB","Male03ENG","Male03ENGB","Male04ENG","Male04ENGB","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG"] call BIS_fnc_selectRandom; 
+_face = ["GreekHead_A3_01","GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04","GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09","GreekHead_A3_10_a","GreekHead_A3_10_l","GreekHead_A3_10_sa"] call BIS_fnc_selectRandom;
+_voice = ["Male01GRE","Male02GRE","Male03GRE","Male04GRE","Male05GRE","Male06GRE"] call BIS_fnc_selectRandom; 
 
 //General Arsenal Stuff with guns, magazines, vests, uniforms, and optics array selections amended//
 comment "Remove existing items";
@@ -33,7 +33,7 @@ for "_i" from 1 to 2 do {_target addItemToVest "16Rnd_9x21_Mag";};
 for "_i" from 1 to 2 do {_target addItemToVest "HandGrenade";};
 _target addBackpack _backpack;
 _target addHeadgear _hat;
-for "_i" from 1 to 2 do {_target addItemToBackpack _magazine;};
+for "_i" from 1 to 4 do {_target addItemToBackpack _magazine;};
 _target addGoggles _goggles;
 
 comment "Add weapons";

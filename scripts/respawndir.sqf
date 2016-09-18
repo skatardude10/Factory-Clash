@@ -1,1 +1,0 @@
-{_x setDir ([_x, Radio] call BIS_fnc_dirTo)} forEach allUnits;
